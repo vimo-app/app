@@ -1,2 +1,2 @@
-# app
-Vimo is a uploading, fast-editing and social sharing image app
+# Vimo
+Vimo is a uploading, fast-editing and social sharing image web app
