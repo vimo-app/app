@@ -1,8 +1,145 @@
+/*
+* SASS is like CSS but extended. Any valid CSS is valid SASS(SCSS).
+* With the & symbol you can get the parent selector. For example:
+* .container h1{
+*   
+* }
+* Equals to: 
+* .container{
+*   & h1{
+*     
+*   }
+* }
+* 
+* Also, you can create variables with the $ symbol. For example:
+* $varName: #FFFFFF;
+* To use it:
+* color: $varName;
+*
+* The last thing you should know is that you can use SASS functions such as darken(color, ammount) or lighten(color, ammount)
+* More info about functions on: https://sass-lang.com/documentation/Sass/Script/Functions.html
+*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  color: #333;
+  background-color: #FAFAFA; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  font-style: normal;
+  color: #2d2d2d; }
+
+h1 {
+  font-size: 5.2rem;
+  text-align: center;
+  font-weight: 300; }
+
+h2 {
+  font-size: 3.6rem; }
+
+h3 {
+  font-size: 2.4rem; }
+
+h4 {
+  font-size: 1.8rem; }
+
+h5 {
+  font-size: 1.6rem;
+  text-decoration: underline; }
+
+h6 {
+  font-size: 1.4rem;
+  text-decoration: underline; }
+
+em {
+  font-style: italic;
+  font-weight: 400; }
 
 a {
   color: #00B7FF; }
+
+/*
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "components/bg-video";
+@import "components/button";
+@import "components/card";
+@import "components/composition";
+@import "components/feature-box";
+@import "components/form";
+@import "components/popup";
+@import "components/story";
+
+@import "layout/footer";
+@import "layout/grid";
+@import "layout/header";
+@import "layout/navigation";
+
+@import "pages/home";
+*/
 
 /*# sourceMappingURL=style.css.map */
