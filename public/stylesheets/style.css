@@ -191,6 +191,8 @@ a {
 
 .normal-content {
   padding: 3rem 1.5rem; }
+  .normal-content__image-grid {
+    padding: 5rem 0; }
 
 .button {
   border: 0;
