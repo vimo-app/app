@@ -41,7 +41,6 @@ app.use(require('node-sass-middleware')({
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
-      
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -59,10 +58,9 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   }
 });
   
+hbs.registerPartials('./views/partials');
 
-// default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
-
+app.locals.pageTitle = 'Vimo';
 
 // Enable authentication using session + passport
 app.use(session({
