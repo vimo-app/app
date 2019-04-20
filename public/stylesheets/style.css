@@ -190,7 +190,10 @@ a {
       width: 100%; }
 
 .normal-content {
-  padding: 3rem 1.5rem; }
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
   .normal-content__image-grid {
     padding: 5rem 0;
     position: relative; }
@@ -220,6 +223,19 @@ a {
         font-size: 2.4rem; }
       .normal-content__image-grid-author:hover {
         opacity: 1; }
+  .normal-content__load-images {
+    padding: .5rem;
+    display: inline-block;
+    text-align: center;
+    border: 0.1rem dashed rgba(38, 38, 38, 0.6);
+    border-radius: 100%;
+    background-color: #FAFAFA;
+    color: #333;
+    font-size: 2.4rem;
+    cursor: pointer;
+    transition: all 1.5s ease-in-out; }
+    .normal-content__load-images:hover {
+      transform: rotate(calc(360deg*2)); }
 
 .button {
   border: 0;

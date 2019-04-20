@@ -1,5 +1,8 @@
 .normal-content{
   padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   
   &__image-grid {
     padding: 5rem 0;
@@ -38,6 +41,23 @@
       &:hover{
         opacity: 1;
       }
+    }
+  }
+
+  &__load-images{
+    padding: .5rem;
+    display: inline-block;
+    text-align: center;
+    border: .1rem dashed rgba($shadow-color,.6);
+    border-radius: 100%;
+    background-color: $bg-color;
+    color: $text-color;
+    font-size: 2.4rem;
+    cursor: pointer;
+    transition: all 1.5s ease-in-out;
+
+    &:hover{
+      transform: rotate(calc(360deg*2));
     }
   }
 
