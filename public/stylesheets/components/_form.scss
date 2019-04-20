@@ -1,0 +1,41 @@
+.form{
+
+  &__group{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    & label{
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      padding: 1rem;
+    }
+
+    & input{
+      padding: 1rem;
+      border: 1px solid rgba($shadow-color, .3);
+      border-radius: .5rem;
+    }
+  }
+
+  &__message{
+    padding: 1rem;
+    background-color: rgba($color-red, .8);
+    color: $color-white;
+    border-radius: .5rem;
+  }
+
+  &__submitting{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  & .button{
+    width: 80%;
+  }
+}

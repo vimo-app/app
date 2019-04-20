@@ -1,0 +1,45 @@
+.button{
+  border: 0;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  border-radius: .5rem;
+  margin: .5rem;
+  text-transform: uppercase;
+  box-shadow: .1rem .1rem .3rem rgba($shadow-color, .3);
+
+  & i{
+    padding: .5rem;
+    font-size: 1.8rem;
+  }
+
+  &--mail{
+    background-color: $color-white;
+    border: 1px solid rgba($shadow-color, .3);
+    & i{
+      color: $color-red;
+    }
+  }
+
+  &--instagram{
+    background-color: $color-instagram;
+    color: $color-white;
+
+    & i{
+      color: $color-white;
+    }
+  }
+
+  &--facebook{
+    background-color: $color-facebook;
+    color: $color-white;
+
+    & i{
+      color: $color-white;
+    }
+  }
+
+  &--send{
+    background-color: $color-blue;
+    color: $color-white;
+  }
+}

@@ -2,6 +2,8 @@ $default-font-size: 1.6rem;
 $link-color: #00B7FF;
 $text-color: #333;
 $bg-color: #FAFAFA;
+$shadow-color: hsla(0, 0%, 15%, .6);
+$max-width: 120rem;
 
 $font-weight-light: 300;
 $font-weight-normal: 400;
@@ -11,3 +13,10 @@ $font-weight-bold: 700;
 $logo-height: 3rem;
 $navigation-bg: hsl(210, 50%, 50%);
 $navigation-color: hsl(0, 0%, 95%);
+
+// COLORS
+$color-white: #FCFCFC;
+$color-red: hsl(0, 50%, 50%);
+$color-blue: hsl(210, 50%, 50%);
+$color-instagram: #c32aa3;
+$color-facebook: #3b5998;
