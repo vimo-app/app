@@ -123,9 +123,15 @@ a {
   align-items: center;
   background-color: #4080bf;
   padding: 1rem; }
+  .navigation__logo {
+    height: 3rem; }
+    .navigation__logo img {
+      height: 100%; }
   .navigation__list-link {
     padding: 1rem;
     color: #f2f2f2; }
+  .navigation--auth {
+    justify-content: center; }
 
 /*
 @import "abstracts/functions";
