@@ -8,8 +8,23 @@
   margin: 3rem;
   padding: 1.5rem;
 
+  &__close{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 1rem;
+    padding-right: 3rem;
+
+    & a{
+      color: $text-color;
+      font-size: 2rem;
+    }
+  }
+
   &__title{
-    padding: 3rem;
+    padding: 1.5rem 3rem 3rem 3rem;
   }
 
   &__action{

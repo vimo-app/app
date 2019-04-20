@@ -142,8 +142,19 @@ a {
   align-items: center;
   margin: 3rem;
   padding: 1.5rem; }
+  .focused-content__close {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 1rem;
+    padding-right: 3rem; }
+    .focused-content__close a {
+      color: #333;
+      font-size: 2rem; }
   .focused-content__title {
-    padding: 3rem; }
+    padding: 1.5rem 3rem 3rem 3rem; }
   .focused-content__action {
     width: 50%; }
     .focused-content__action > .button {
@@ -205,10 +216,13 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  text-align: center;
+  line-height: 1.6; }
 
 .form .button {
-  width: 80%; }
+  width: 80%;
+  line-height: 1.8; }
 
 .content {
   display: flex;

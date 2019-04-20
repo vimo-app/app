@@ -1,24 +1,40 @@
-<h2>Signup</h2>
-
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
-
-  <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-
-  <br><br>
-
-  <button>Create account</button>
-
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
-</form>
+{{> authNavigation}}
+<div class="content">
+  <div class="focused-content">
+    <div class="focused-content__close">
+      <a href="/"><i class="fas fa-times"></i></a>
+    </div>
+    <h1 class="focused-content__title">Signup in Vimo</h1>
+    <div class="focused-content__action">
+      <form action="/auth/signup" method="POST" id="form" class="form">
+        <div class="form__group">
+          <label for="username">Username</label>
+          <input id="username" type="text" name="username" placeholder="Your username">
+        </div>
+        <div class="form__group">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" placeholder="Your email">
+        </div>
+        <div class="form__group">
+          <label for="password">Password</label>
+          <input id="password" type="password" name="password" placeholder="Your password">
+        </div>
+        <div class="form__group">
+          <label for="password-confirm">Confirm your password</label>
+          <input id="password-confirm" type="password" name="password-confirm" placeholder="Your password, again">
+        </div>
+        {{#if message }}
+          <div class="form__message">{{ message }}</div>
+        {{/if}}
+        <div class="form__submitting">
+          <button class="button button--send">Create account</button>
+          <a href="/auth/login">Already have an account? Login!</a>
+        </div>
+      </form>
+    </div>
+    <div class="focused-content__social">
+      <button class="button button--instagram">Register with Instagram <i class="fab fa-instagram"></i></button>
+      <button class="button button--facebook">Register with Facebook <i class="fab fa-facebook-square"></i></button>
+    </div>
+  </div>
+</div>
