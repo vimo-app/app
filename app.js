@@ -17,10 +17,10 @@ const flash      = require("connect-flash");
 mongoose
   .connect('mongodb://localhost/vimo', {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
   .catch(err => {
-    console.error('Error connecting to mongo', err)
+    console.error('Error connecting to mongo', err);
   });
 
 const app_name = require('./package.json').name;
@@ -70,7 +70,7 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   store: new MongoStore( { mongooseConnection: mongoose.connection })
-}))
+}));
 app.use(flash());
 require('./passport')(app);
     

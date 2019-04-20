@@ -1,0 +1,14 @@
+{
+  "node": true,
+  "curly": true,
+  "eqeqeq": true,
+  "esversion": 9,
+  "forin": true,
+  "freeze": true,
+  "latedef": true,
+  "leanswitch": true,
+  "noarg": true,
+  "nocomma": true,
+  "undef": true,
+  "unused": true
+}
