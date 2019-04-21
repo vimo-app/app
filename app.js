@@ -82,6 +82,6 @@ const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
 const mockRoutes = require('./routes/mock-routes');
-app.use('/', mockRoutes);
+app.use('/mock', mockRoutes);
 
 module.exports = app;
