@@ -1,0 +1,44 @@
+.album-list{
+  display: flex;
+  flex-basis: $album-card-dimensions;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3rem;
+
+  &__title{
+    font-weight: $font-weight-light;
+  }
+}
+
+.profile-data{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  margin-bottom: 3rem;
+  background-color: rgba(darken($bg-color, 5%), .3);
+  border-radius: .5rem;
+
+  &__image{
+    width: $profile-image-dim;
+    height: $profile-image-dim;
+    border-radius: 50%;
+    margin: 3rem;
+  }
+
+  &__description{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    
+    &-title{
+      padding: 2rem;
+      padding-top: 0;
+      padding-left: 0;
+      font-size: 3.6rem;
+    }
+  }
+}
+
