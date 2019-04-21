@@ -13,7 +13,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/private",
   failureRedirect: "/auth/login",
   failureFlash: true,
   passReqToCallback: true
@@ -45,15 +45,26 @@ router.post("/signup", (req, res, next) => {
       password: hashPass
     });
 
+    console.log('test error');
+
     newUser.save()
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(err => {
-      res.render("auth/signup", { message: "Something went wrong" });
-    })
+      .then(() => {
+        res.redirect("/");
+      })
+      .catch(err => {
+        res.render("auth/signup", { message: "Something went wrong" });
+      })
   });
 });
+
+router.get('/instagram', passport.authenticate('instagram'), (req, res, next) => {
+  next();
+});
+
+router.get('/instagram/callback', passport.authenticate('instagram', { 
+  successRedirect: "/private",
+  failureRedirect: "/login"  
+})),
 
 router.get("/logout", (req, res) => {
   req.logout();
