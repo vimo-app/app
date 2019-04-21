@@ -49,7 +49,7 @@ router.post("/signup", (req, res, next) => {
 
     newUser.save()
       .then(() => {
-        res.redirect("/");
+        res.redirect("/auth/login");
       })
       .catch(err => {
         res.render("auth/signup", { message: "Something went wrong" });
@@ -63,8 +63,18 @@ router.get('/instagram', passport.authenticate('instagram'), (req, res, next) =>
 
 router.get('/instagram/callback', passport.authenticate('instagram', { 
   successRedirect: "/private",
-  failureRedirect: "/login"  
-})),
+  failureRedirect: "/auth/login"  
+}));
+
+router.get('/facebook',
+  passport.authenticate('facebook'));
+
+router.get('/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/private');
+  });
 
 router.get("/logout", (req, res) => {
   req.logout();
