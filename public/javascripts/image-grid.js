@@ -1,4 +1,4 @@
-window.onload = function(){
+(function(){
   let imageGrid = document.querySelector('#image-grid');
   let spinner = document.querySelector('#spinner');
   let anchor,img,div;
@@ -27,4 +27,4 @@ window.onload = function(){
   
   loadImages(pageCounter++);
   
-};
+})();
