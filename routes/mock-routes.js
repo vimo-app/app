@@ -5,7 +5,7 @@ router.get('/profile', (req, res, next) => {
   res.render('profile/profile');
 });
 router.get('/album', (req, res, next) => {
-  res.render('profile/profile');
+  res.render('profile/album');
 });
 
 module.exports = router;
