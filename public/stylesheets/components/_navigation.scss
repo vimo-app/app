@@ -14,10 +14,45 @@
     }
   }
 
+  &__search{
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 1rem;
+
+    & input{
+      flex-grow: 1;
+      flex-shrink: 1;
+      padding: 1rem;
+      margin-right: 0;
+      border: 0;
+      border-radius: .5rem 0 0 .5rem;
+      box-shadow: .1rem .1rem .3rem rgba($shadow-color, .4);
+    }
+    & .button{
+      flex-grow: 0;
+      flex-shrink: 0;
+      padding: .35rem;
+      border-radius: 0 .5rem .5rem 0;
+      margin-left: 0;
+      border: 0;
+    }
+  }
+
   &__list{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
     &-link{
       padding: 1rem;
       color: $navigation-color;
+      flex-grow: 0;
+      flex-shrink: 0;
+      
     }
   }
 
