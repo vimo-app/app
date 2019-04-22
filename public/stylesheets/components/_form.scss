@@ -33,9 +33,12 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
+    text-align: center;
+    line-height: 1.6;
   }
 
   & .button{
     width: 80%;
+    line-height: 1.8;
   }
 }
