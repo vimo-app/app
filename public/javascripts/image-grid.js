@@ -1,7 +1,11 @@
 window.onload = function(){
   let imageGrid = document.querySelector('#image-grid');
+  let spinner = document.querySelector('#spinner');
   let anchor,img,div;
-  axios.get(`${window.location.origin}/flickr/home/photos`)
+  let pageCounter = 1;
+  
+  function loadImages(page = 1){
+    axios.get(`${window.location.origin}/flickr/home/photos/${page}`)
     .then(response => {
       let images = response.data.response;
       images.forEach(image => {
@@ -9,6 +13,7 @@ window.onload = function(){
         img = document.createElement('img');
         div = document.createElement('div');
         anchor.setAttribute('href', image.url);
+        anchor.setAttribute('target', '_blank');
         img.setAttribute('src', image.image);
         div.setAttribute('class', 'normal-content__image-grid-author');
         div.innerHTML = `<span>${image.realname !== '' ? image.realname : image.username}</span>`;
@@ -16,5 +21,10 @@ window.onload = function(){
         anchor.appendChild(div);
         imageGrid.appendChild(anchor);
       });
+      spinner.onclick = loadImages.bind(null, pageCounter++);
     });
+  }
+  
+  loadImages(pageCounter++);
+  
 };
