@@ -13,7 +13,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/private",
+  successRedirect: "/mock/profile",
   failureRedirect: "/auth/login",
   failureFlash: true,
   passReqToCallback: true
@@ -67,7 +67,7 @@ router.get('/instagram', passport.authenticate('instagram'), (req, res, next) =>
 });
 
 router.get('/instagram/callback', passport.authenticate('instagram', {
-  successRedirect: "/private",
+  successRedirect: "/mock/profile",
   failureRedirect: "/auth/login"
 }));
 
@@ -76,13 +76,14 @@ router.get('/facebook', passport.authenticate('facebook'), (req, res, next) => {
 });
 
 router.get('/facebook/callback', passport.authenticate('facebook', {
-  successRedirect: "/private",
+  successRedirect: "/mock/profile",
   failureRedirect: "/auth/login"
 }));
 
-router.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect("/");
+router.get("/logout", (req, res, next) => {
+  req.session.destroy((err) => {
+    res.redirect("/auth/login");
+  });
 });
 
 module.exports = router;
