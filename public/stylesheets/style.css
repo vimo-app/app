@@ -383,7 +383,8 @@ a {
     width: 10rem;
     height: 10rem;
     border-radius: 50%;
-    margin: 3rem; }
+    margin: 3rem;
+    object-fit: cover; }
   .profile-data__description {
     display: flex;
     flex-direction: column;

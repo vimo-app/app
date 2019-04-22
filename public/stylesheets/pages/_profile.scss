@@ -25,6 +25,7 @@
     height: $profile-image-dim;
     border-radius: 50%;
     margin: 3rem;
+    object-fit: cover;
   }
 
   &__description{
