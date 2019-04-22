@@ -22,9 +22,9 @@
         imageGrid.appendChild(anchor);
       });
       spinner.onclick = loadImages.bind(null, pageCounter++);
+      if(pageCounter < 5){ loadImages(pageCounter);}
     });
   }
-  
-  loadImages(pageCounter++);
+  loadImages(pageCounter)
   
 })();
