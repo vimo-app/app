@@ -1,8 +1,55 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+/*
+* SASS is like CSS but extended. Any valid CSS is valid SASS(SCSS).
+* With the & symbol you can get the parent selector. For example:
+* .container h1{
+*   
+* }
+* Equals to: 
+* .container{
+*   & h1{
+*     
+*   }
+* }
+* 
+* Also, you can create variables with the $ symbol. For example:
+* $varName: #FFFFFF;
+* To use it:
+* color: $varName;
+*
+* The last thing you should know is that you can use SASS functions such as darken(color, ammount) or lighten(color, ammount)
+* More info about functions on: https://sass-lang.com/documentation/Sass/Script/Functions.html
+*/
 
-a {
-  color: #00B7FF;
-}
+// With @import you get the another scss files 
+@import "abstracts/variables";
+
+@import "base/reset";
+@import "base/base";
+
+@import "components/navigation";
+/*
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "components/bg-video";
+@import "components/button";
+@import "components/card";
+@import "components/composition";
+@import "components/feature-box";
+@import "components/form";
+@import "components/popup";
+@import "components/story";
+
+@import "layout/footer";
+@import "layout/grid";
+@import "layout/header";
+@import "layout/navigation";
+
+@import "pages/home";
+*/

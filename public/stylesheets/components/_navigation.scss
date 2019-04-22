@@ -1,0 +1,15 @@
+.navigation{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $navigation-bg;
+  padding: 1rem;
+  
+  &__list{
+    &-link{
+      padding: 1rem;
+      color: $navigation-color;
+    }
+  }
+}
