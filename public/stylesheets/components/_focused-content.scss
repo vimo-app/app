@@ -1,0 +1,22 @@
+.focused-content{
+  background-color: $bg-color;
+  border-radius: 1rem;
+  box-shadow: .3rem .3rem .5rem $shadow-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem;
+  padding: 1.5rem;
+
+  &__title{
+    padding: 3rem;
+  }
+
+  &__action{
+    width: 50%;
+
+    & > .button{
+      width: 100%;
+    }
+  }
+}

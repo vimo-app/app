@@ -1,25 +1,29 @@
-{{> navigation}}
-<h2>Login</h2>
+{{> authNavigation}}
+<div class="content">
+  <div class="focused-content">
+    <h1 class="focused-content__title">Login in Vimo</h1>
+    <div class="focused-content__action">
+      <button class="button button--mail">Login with mail <i class="fas fa-envelope"></i></button>
+      <form action="/auth/login" method="POST" id="form" class="form">
+        <div class="form__group">
+          <label for="username">Username</label>
+          <input id="username" type="text" name="username" placeholder="Your username">
+        </div>
+        <div class="form__group">
+          <label for="password">Password</label>
+          <input id="password" type="password" name="password" placeholder="Your password">
+        </div>
+        {{#if message }}
+          <div class="form__message">{{ message }}</div>
+        {{/if}}
+        <div class="form__submitting">
+          <button class="button button--send">Login</button>
+          <a href="/auth/signup">Do not have an account? Sign up!</a>
+        </div>
+      </form>
+      <button class="button button--instagram">Login with Instagram <i class="fab fa-instagram"></i></button>
+      <button class="button button--facebook">Login with Facebook <i class="fab fa-facebook-square"></i></button>
+    </div>
+  </div>
+</div>
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
-
-  <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-
-  <br><br>
-
-  <button>Login</button>
-
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
