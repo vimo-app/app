@@ -28,14 +28,16 @@ router.post("/signup", (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+    res.status(500).json({status: 500, message: "Indicate username and password"});
+    // res.render("auth/signup", { message: "Indicate username and password" });
     return;
   }
 
   User.findOne({ username }, "username", (err, user) => {
     
     if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+      res.status(500).json({status: 500, message: "username not found"});
+      // res.render("auth/signup", { message: "The username already exists" });
       return;
     }
 
@@ -52,9 +54,10 @@ router.post("/signup", (req, res, next) => {
 
     newUser.save()
       .then(() => {
-        res.redirect("/auth/login");
+        res.status(200).json({status: 200, newUser});
       })
       .catch(err => {
+        console.log(err)
         res.render("auth/signup", { message: "Something went wrong" });
       })
   });
