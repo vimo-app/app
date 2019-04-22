@@ -1,0 +1,34 @@
+.card{
+  width: $album-card-dimensions;
+  height: $album-card-dimensions;
+  position: relative;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: .5rem dashed rgba($shadow-color, .3);
+  border-radius: .3rem;
+  background-color: rgba(lighten($shadow-color, 60%), .3);
+
+  &__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title{
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    color: rgba(lighten($shadow-color, 10%),1);
+  }
+
+  &__new{
+    padding: 1.5rem;
+    border: .5rem dotted rgba(lighten($shadow-color, 10%),1);
+    font-size: 3.2rem;
+    border-radius: 50%;
+    color: rgba(lighten($shadow-color, 10%),1);
+  }
+}
