@@ -27,16 +27,17 @@ router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
+  console.log(username, email, password)
   if (username === "" || password === "") {
-    res.status(500).json({status: 500, message: "Indicate username and password"});
+    res.status(500).json({ status: 500, message: "Indicate username and password" });
     // res.render("auth/signup", { message: "Indicate username and password" });
     return;
   }
 
   User.findOne({ username }, "username", (err, user) => {
-    
+
     if (user !== null) {
-      res.status(500).json({status: 500, message: "username not found"});
+      res.status(500).json({ status: 500, message: "Username not found" });
       // res.render("auth/signup", { message: "The username already exists" });
       return;
     }
@@ -50,11 +51,9 @@ router.post("/signup", (req, res, next) => {
       password: hashPass
     });
 
-    console.log('test error');
-
     newUser.save()
       .then(() => {
-        res.status(200).json({status: 200, newUser});
+        res.status(200).json({ status: 200, newUser });
       })
       .catch(err => {
         console.log(err)
@@ -67,20 +66,19 @@ router.get('/instagram', passport.authenticate('instagram'), (req, res, next) =>
   next();
 });
 
-router.get('/instagram/callback', passport.authenticate('instagram', { 
+router.get('/instagram/callback', passport.authenticate('instagram', {
   successRedirect: "/private",
-  failureRedirect: "/auth/login"  
+  failureRedirect: "/auth/login"
 }));
 
-router.get('/facebook',
-  passport.authenticate('facebook'));
+router.get('/facebook', passport.authenticate('facebook'), (req, res, next) => {
+  next();
+});
 
-router.get('/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/private');
-  });
+router.get('/facebook/callback', passport.authenticate('facebook', {
+  successRedirect: "/private",
+  failureRedirect: "/auth/login"
+}));
 
 router.get("/logout", (req, res) => {
   req.logout();

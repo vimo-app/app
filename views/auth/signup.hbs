@@ -27,14 +27,16 @@
           <div class="form__message">{{ message }}</div>
         {{/if}}
         <div class="form__submitting">
-          <a href="/auth/signup" class="button button--send">Create account</a>
+          <button class="button button--send" id="accountBtn">Create account</button>
           <a href="/auth/login">Already have an account? Login!</a>
         </div>
       </form>
     </div>
     <div class="focused-content__social">
-      <a href="/auth/instagram" class="button button--instagram">Register with Instagram <i class="fab fa-instagram"></i></a>
-      <a href="/auth/facebook" class="button button--facebook">Register with Facebook <i class="fab fa-facebook-square"></i></a>
+      <button class="button button--instagram">Register with Instagram <i class="fab fa-instagram"></i></button>
+      <button class="button button--facebook">Register with Facebook <i class="fab fa-facebook-square"></i></button>
     </div>
   </div>
 </div>
+
+<script src="/javascripts/signup.js"></script>
