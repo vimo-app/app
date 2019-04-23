@@ -86,4 +86,10 @@ app.use('/flickr', flickrRoutes);
 const mockRoutes = require('./routes/mock-routes');
 app.use('/mock', mockRoutes);
 
+const albums = require('./routes/albums');
+app.use('/album', albums);
+
+const users = require('./routes/users');
+app.use('/user', users);
+
 module.exports = app;
