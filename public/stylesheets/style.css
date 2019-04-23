@@ -244,6 +244,8 @@ a {
   cursor: pointer;
   border-radius: .5rem;
   margin: .5rem;
+  text-align: center;
+  color: #333;
   text-transform: uppercase;
   box-shadow: 0.1rem 0.1rem 0.3rem rgba(38, 38, 38, 0.3); }
   .button i {
