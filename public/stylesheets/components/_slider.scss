@@ -1,0 +1,32 @@
+.slider{
+  margin-top: 3rem;
+  
+  & > ul{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__paginate{
+    cursor: pointer;
+  }
+
+  &__image{
+    width: 10rem;
+    margin: .5rem 1rem;
+    cursor: pointer;
+    
+    & img{
+      width: 100%;
+    }
+
+    &.hidden{
+      display: none;
+    }
+
+    &:nth-child(1){
+      
+    }
+  }
+}

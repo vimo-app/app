@@ -2,15 +2,24 @@
 <div class="content">
   <div class="normal-content">
     <h2 class="images-list__title">Album name</h1>
-    <div class="images-list">
+    <div class="images-list" id="image-list" style="display:none;">
       {{> cards/card url='/mock/upload-images' title='Upload photos'}}
       {{> cards/photo}}
-      {{> cards/photo}}
-      {{> cards/photo}}
-      {{> cards/photo}}
-      {{> cards/photo}}
-      {{> cards/photo}}
-      {{> cards/photo}}
+    </div>
+    <div class="slider">
+      <ul id="slider-content">
+        <li class="slider__paginate" id="prev"><i class="fas fa-arrow-left"></i></li>
+        <li class="slider__image"><img src="/images/test/test-1.jpg" alt=""></li>
+        <li class="slider__image"><img src="/images/test/test-2.jpg" alt=""></li>
+        <li class="slider__image"><img src="/images/test/test-3.jpg" alt=""></li>
+        <li class="slider__image"><img src="/images/test/test-4.jpg" alt=""></li>
+        <li class="slider__image"><img src="/images/test/test-5.jpg" alt=""></li>
+        <li class="slider__image hidden"><img src="/images/test/test-6.jpg" alt=""></li>
+        <li class="slider__image hidden"><img src="/images/test/test-7.jpg" alt=""></li>
+        <li class="slider__image hidden"><img src="/images/test/test-8.jpg" alt=""></li>
+        <li class="slider__paginate" id="next"><i class="fas fa-arrow-right"></i></li>
+      </ul>
     </div>
   </div>
 </div>
+<script src="/javascripts/album-list-view.js"></script>

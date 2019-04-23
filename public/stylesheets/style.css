@@ -390,6 +390,24 @@ a {
     height: 100%;
     object-fit: contain; }
 
+.slider {
+  margin-top: 3rem; }
+  .slider > ul {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center; }
+  .slider__paginate {
+    cursor: pointer; }
+  .slider__image {
+    width: 10rem;
+    margin: .5rem 1rem;
+    cursor: pointer; }
+    .slider__image img {
+      width: 100%; }
+    .slider__image.hidden {
+      display: none; }
+
 .content {
   display: flex;
   flex-direction: row;
