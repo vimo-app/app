@@ -402,11 +402,23 @@ a {
   .slider__image {
     width: 10rem;
     margin: .5rem 1rem;
-    cursor: pointer; }
+    cursor: pointer;
+    display: none; }
     .slider__image img {
-      width: 100%; }
-    .slider__image.hidden {
-      display: none; }
+      width: 100%;
+      transition: all .3s ease-out; }
+    .slider__image:nth-child(2), .slider__image:nth-child(3), .slider__image:nth-child(4), .slider__image:nth-child(5), .slider__image:nth-child(6) {
+      display: inline-block; }
+    .slider__image:nth-child(2) img {
+      transform: rotateY(-75deg); }
+    .slider__image:nth-child(3) img {
+      transform: rotateY(-45deg); }
+    .slider__image:nth-child(4) img {
+      transform: rotateY(0); }
+    .slider__image:nth-child(5) img {
+      transform: rotateY(45deg); }
+    .slider__image:nth-child(6) img {
+      transform: rotateY(75deg); }
 
 .content {
   display: flex;

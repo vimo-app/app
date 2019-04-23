@@ -8,6 +8,7 @@
     e.preventDefault();
     let firstImage = sliderContent.children[1];
     next.insertAdjacentElement('beforebegin', firstImage);
+    refreshClickable();
   };
 
   prev.onclick = function(e){
@@ -15,9 +16,18 @@
     let imageNumber = sliderContent.children.length;
     let lastImage = sliderContent.children[imageNumber-2];
     prev.insertAdjacentElement('afterend', lastImage);
+    refreshClickable();
   };
 
-  function getImageData(){
-
+  function refreshClickable(){
+    for(let i = 1, max = sliderContent.children.length - 2; i < max; i += 1){
+      sliderContent.children[i].onclick = getImageInfo;
+    }
   }
+
+  function getImageInfo(e){
+    let element = e.target.nodeName === 'IMG' ? e.target : e.target.children[0];
+    console.log(element);
+  }
+  refreshClickable();
 })();

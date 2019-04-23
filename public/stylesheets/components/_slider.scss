@@ -16,17 +16,35 @@
     width: 10rem;
     margin: .5rem 1rem;
     cursor: pointer;
+    display: none;
     
     & img{
       width: 100%;
+      transition: all .3s ease-out;
     }
 
-    &.hidden{
-      display: none;
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6){
+      display: inline-block;
     }
 
-    &:nth-child(1){
-      
+    &:nth-child(2) img{
+      transform: rotateY(-75deg);
+    }
+    &:nth-child(3) img{
+      transform: rotateY(-45deg);
+    }
+    &:nth-child(4) img{
+      transform: rotateY(0);
+    }
+    &:nth-child(5) img{
+      transform: rotateY(45deg);
+    }
+    &:nth-child(6) img{
+      transform: rotateY(75deg);
     }
   }
 }
