@@ -9,6 +9,8 @@
   let selectedImage;
   let img;
 
+  let stage = new createjs.Stage('canvas');
+
   next.onclick = function(e){
     e.preventDefault();
     let firstImage = sliderContent.children[1];
@@ -31,37 +33,43 @@
   }
 
   function getImageInfo(e){
+    stage.clear();
     let element = e.target.nodeName === 'IMG' ? e.target : e.target.children[0];
-    if(selectedImage !== element){ 
-      let originalRatio = element.width/element.height;
-      img = document.createElement('img');
-      img.src = element.src;
-      if(originalRatio >= 1){
-        img.width = canvas.width;
-        img.height = img.width/originalRatio;
+    if(selectedImage !== element){
+      stage.removeAllChildren();
+      
+      selectedImage = element;
+      img = new createjs.Bitmap(element.src);
+      if(img.image.width > img.image.height){
+        img.scaleX = img.scaleY = canvas.width/img.image.width;
+      }else if(img.image.height > img.image.width){
+        img.scaleX = img.scaleY = canvas.height/img.image.height; 
       }else{
-        img.height = canvas.height;
-        img.width = img.height/originalRatio;
+        img.scaleX = img.scaleY = canvas.height / img.image.height;
+        
       }
+
+
+      img.x = (stage.canvas.width - img.image.width * img.scaleX) / 2;
+      img.y = (stage.canvas.height - img.image.height * img.scaleY) / 2;
+
+      stage.addChild(img);
       imageClicked = true;
-      selectedImage = element; 
     }else{
       imageClicked = false;
       selectedImage = null;
+      reloadCanvas();
     }
-    refreshCanvas(img);
+    stage.update();
+    reloadCanvas();
   }
 
-  function refreshCanvas(img){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    if(!imageClicked){ 
-      return; 
+  function reloadCanvas(){
+    if(!imageClicked){
+      stage.removeAllChildren();
+      stage.update();
     }
-
-    ctx.drawImage(img, canvas.width/2 - img.width/2, canvas.height/2 - img.height/2, img.width, img.height);
-    
   }
 
   refreshClickable();
-  refreshCanvas();
 })();
