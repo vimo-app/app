@@ -6,6 +6,8 @@
   let canvas = document.querySelector('#canvas');
   let ctx = canvas.getContext('2d');
   let imageClicked = false;
+  let selectedImage;
+  let img;
 
   next.onclick = function(e){
     e.preventDefault();
@@ -30,11 +32,33 @@
 
   function getImageInfo(e){
     let element = e.target.nodeName === 'IMG' ? e.target : e.target.children[0];
-    console.log(element);
+    if(selectedImage !== element){ 
+      let originalRatio = element.width/element.height;
+      img = document.createElement('img');
+      img.src = element.src;
+      if(originalRatio >= 1){
+        img.width = canvas.width;
+        img.height = img.width/originalRatio;
+      }else{
+        img.height = canvas.height;
+        img.width = img.height/originalRatio;
+      }
+      imageClicked = true;
+      selectedImage = element; 
+    }else{
+      imageClicked = false;
+      selectedImage = null;
+    }
+    refreshCanvas(img);
   }
 
-  function refreshCanvas(){
-    if(!imageClicked){ return; }
+  function refreshCanvas(img){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if(!imageClicked){ 
+      return; 
+    }
+
+    ctx.drawImage(img, canvas.width/2 - img.width/2, canvas.height/2 - img.height/2, img.width, img.height);
     
   }
 
