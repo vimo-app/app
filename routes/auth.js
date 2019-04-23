@@ -29,7 +29,7 @@ router.post("/signup", (req, res, next) => {
   const password = req.body.password;
   const passwordConfirm = req.body.passwordConfirm;
  
-  if (username === "" || password === "" || email === "") {
+  if (username === "" || password === "" || email === "" || passwordConfirm === "") {
     res.render ("auth/signup", { "message": "Indicate username and password" });
     return;
   }
