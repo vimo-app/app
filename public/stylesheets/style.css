@@ -185,7 +185,8 @@ a {
   .focused-content__title {
     padding: 1.5rem 3rem 3rem 3rem; }
   .focused-content__action {
-    width: 50%; }
+    display: flex;
+    flex-direction: column; }
     .focused-content__action > .button {
       width: 100%; }
 
