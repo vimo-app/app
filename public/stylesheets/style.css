@@ -362,9 +362,12 @@ a {
   background-color: #efefef;
   position: relative;
   margin: 0.5rem; }
+  .photo:hover .photo__actions {
+    opacity: 1; }
   .photo__actions {
     cursor: pointer;
     display: flex;
+    opacity: 0;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -373,7 +376,8 @@ a {
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(252, 252, 252, 0.7);
-    border-radius: 0 0 .5rem .5rem; }
+    border-radius: 0 0 .5rem .5rem;
+    transition: opacity .3s ease-in-out; }
     .photo__actions-option {
       padding: 1rem; }
       .photo__actions-option a {

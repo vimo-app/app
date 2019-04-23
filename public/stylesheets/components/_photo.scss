@@ -4,10 +4,15 @@
   background-color: rgba(darken($color-white, 5%), 1);
   position: relative;
   margin: 0.5rem;
-
+  
+  &:hover &__actions{
+    opacity: 1;
+  }
+  
   &__actions{
     cursor: pointer;
     display: flex;
+    opacity: 0;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -17,6 +22,8 @@
     transform: translateX(-50%);
     background-color: rgba($color-white, .7);
     border-radius: 0 0 .5rem .5rem;
+    transition: opacity .3s ease-in-out;
+
     
     &-option{
       padding: 1rem;
