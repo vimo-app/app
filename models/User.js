@@ -6,7 +6,7 @@ const userSchema = new Schema({
   email: String,
   password: String,
   instagramID: String,
-  facebookID: String
+  facebookID: String,
 }, {
   timestamps: {
     createdAt: 'created_at',

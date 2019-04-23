@@ -7,7 +7,7 @@ const User = require('../models/User');
 passport.use(new InstagramStrategy({
   clientID: process.env.INSTAGRAM_ID,
   clientSecret: process.env.INSTAGRAM_SECRET,
-  callbackURL: "http://localhost:3000/auth/instagram/callback"
+  callbackURL: process.env.INSTAGRAM_CALLBACK
 
 }, (accessToken, refreshToken, profile, done) => {
   // asynchronous verification, for effect...
