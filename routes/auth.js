@@ -27,18 +27,25 @@ router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
-  console.log(username, email, password)
-  if (username === "" || password === "") {
-    res.status(500).json({ status: 500, message: "Indicate username and password" });
-    // res.render("auth/signup", { message: "Indicate username and password" });
+  const passwordConfirm = req.body.passwordConfirm;
+ 
+  if (username === "" || password === "" || email === "") {
+    // res.status(500).json({ message: "Indicate username and password" });
+    res.render ("auth/signup", { "message": "Indicate username and password" });
+    return;
+  }
+  
+  if (passwordConfirm !== password) {
+    // res.status(500).json({ message: "Your password is not correct" });
+    res.render ("auth/signup", { "message": "Your password is not correct" });
     return;
   }
 
   User.findOne({ username }, "username", (err, user) => {
 
     if (user !== null) {
-      res.status(500).json({ status: 500, message: "Username not found" });
-      // res.render("auth/signup", { message: "The username already exists" });
+      // res.status(500).json({ message: "Username already used" });
+      res.render("auth/signup", {"message": "Username already exists"})
       return;
     }
 

@@ -1,26 +1,26 @@
-(function () {
+// (function () {
 
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
 
-    document.getElementById("loginBtn").onclick = function (e) {
+//     document.getElementById("loginBtn").onclick = function (e) {
 
-      e.preventDefault();
+//       e.preventDefault();
 
-      var user = {
-        username: document.getElementById("username").value,
-        password: document.getElementById("password").value
-      };
+//       var user = {
+//         username: document.getElementById("username").value,
+//         password: document.getElementById("password").value
+//       };
 
-      axios
-        .post("/auth/login", user)
-        .then(userData => {
-          window.location = window.location.origin + "/auth/private"
-        })
-        .catch(error => {
-          console.log(error)
-        });
-    };
+//       axios
+//         .post("/auth/login", user)
+//         .then(userData => {
+//           window.location = window.location.origin + "/auth/private"
+//         })
+//         .catch(error => {
+//           console.log(error)
+//         });
+//     };
 
-  }, false);
+//   }, false);
 
-})
+// })
