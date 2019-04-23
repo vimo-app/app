@@ -80,6 +80,9 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
+const flickrRoutes = require('./routes/flickr');
+app.use('/flickr', flickrRoutes);
+
 const mockRoutes = require('./routes/mock-routes');
 app.use('/mock', mockRoutes);
 

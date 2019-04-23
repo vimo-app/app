@@ -43,6 +43,7 @@ router.post("/signup", (req, res, next) => {
 
     if (user !== null) {
       res.render("auth/signup", {"message": "Username already exists"})
+
       return;
     }
 
