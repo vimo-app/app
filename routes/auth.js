@@ -13,7 +13,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/private",
+  successRedirect: "/mock/profile",
   failureRedirect: "/auth/login",
   failureFlash: true,
   passReqToCallback: true
@@ -27,15 +27,18 @@ router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
+  console.log(username, email, password)
   if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+    res.status(500).json({ status: 500, message: "Indicate username and password" });
+    // res.render("auth/signup", { message: "Indicate username and password" });
     return;
   }
 
   User.findOne({ username }, "username", (err, user) => {
-    
+
     if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+      res.status(500).json({ status: 500, message: "Username not found" });
+      // res.render("auth/signup", { message: "The username already exists" });
       return;
     }
 
@@ -48,13 +51,12 @@ router.post("/signup", (req, res, next) => {
       password: hashPass
     });
 
-    console.log('test error');
-
     newUser.save()
       .then(() => {
-        res.redirect("/auth/login");
+        res.status(200).json({ status: 200, newUser });
       })
       .catch(err => {
+        console.log(err)
         res.render("auth/signup", { message: "Something went wrong" });
       })
   });
@@ -64,24 +66,24 @@ router.get('/instagram', passport.authenticate('instagram'), (req, res, next) =>
   next();
 });
 
-router.get('/instagram/callback', passport.authenticate('instagram', { 
-  successRedirect: "/private",
-  failureRedirect: "/auth/login"  
+router.get('/instagram/callback', passport.authenticate('instagram', {
+  successRedirect: "/mock/profile",
+  failureRedirect: "/auth/login"
 }));
 
-router.get('/facebook',
-  passport.authenticate('facebook'));
+router.get('/facebook', passport.authenticate('facebook'), (req, res, next) => {
+  next();
+});
 
-router.get('/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/private');
+router.get('/facebook/callback', passport.authenticate('facebook', {
+  successRedirect: "/mock/profile",
+  failureRedirect: "/auth/login"
+}));
+
+router.get("/logout", (req, res, next) => {
+  req.session.destroy((err) => {
+    res.redirect("/auth/login");
   });
-
-router.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect("/");
 });
 
 module.exports = router;
