@@ -356,6 +356,15 @@ a {
     width: 100%;
     height: auto; }
 
+.image {
+  width: 30rem;
+  height: 30rem;
+  background-color: #ededed;
+  text-align: center; }
+  .image__image {
+    height: 100%;
+    object-fit: contain; }
+
 .content {
   display: flex;
   flex-direction: row;
@@ -398,5 +407,15 @@ a {
       padding-top: 0;
       padding-left: 0;
       font-size: 3.6rem; }
+
+.images-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center; }
+  .images-list__title {
+    font-weight: 300; }
+  .images-list > div {
+    margin: 1rem; }
 
 /*# sourceMappingURL=style.css.map */

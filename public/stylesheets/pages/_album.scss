@@ -1,0 +1,14 @@
+.images-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  
+  &__title{
+    font-weight: $font-weight-light;
+  }
+
+  & > div{
+    margin: 1rem;
+  }
+}
