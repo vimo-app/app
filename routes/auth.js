@@ -42,7 +42,7 @@ router.post("/signup", (req, res, next) => {
   User.findOne({ username }, "username", (err, user) => {
 
     if (user !== null) {
-      res.render("auth/signup", {"message": "Username already exists"})
+      res.render("auth/signup", {"message": "Username already exists"});
 
       return;
     }
@@ -58,7 +58,8 @@ router.post("/signup", (req, res, next) => {
 
     newUser.save()
       .then(() => {
-        res.status(200).json({ status: 200, newUser });
+        res.render("auth/login");
+        // res.status(200).json({ status: 200, newUser });
       })
       .catch(err => {
         console.log(err)
