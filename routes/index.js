@@ -12,4 +12,8 @@ router.get('/mock/profile', ensureLogin.ensureLoggedIn('/auth/login'), (req,res)
   res.render('profile/profile');
 });
 
+router.get('/privacy', ensureLogin.ensureLoggedIn('/auth/login'), (req,res) => {
+  res.render('privacy');
+});
+
 module.exports = router;
