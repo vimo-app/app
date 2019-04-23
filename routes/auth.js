@@ -30,13 +30,11 @@ router.post("/signup", (req, res, next) => {
   const passwordConfirm = req.body.passwordConfirm;
  
   if (username === "" || password === "" || email === "") {
-    // res.status(500).json({ message: "Indicate username and password" });
     res.render ("auth/signup", { "message": "Indicate username and password" });
     return;
   }
   
   if (passwordConfirm !== password) {
-    // res.status(500).json({ message: "Your password is not correct" });
     res.render ("auth/signup", { "message": "Your password is not correct" });
     return;
   }
@@ -44,7 +42,6 @@ router.post("/signup", (req, res, next) => {
   User.findOne({ username }, "username", (err, user) => {
 
     if (user !== null) {
-      // res.status(500).json({ message: "Username already used" });
       res.render("auth/signup", {"message": "Username already exists"})
       return;
     }
