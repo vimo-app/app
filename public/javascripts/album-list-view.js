@@ -3,6 +3,9 @@
   let sliderContent = document.querySelector('#slider-content')
   let next = document.querySelector('#next');
   let prev = document.querySelector('#prev');
+  let canvas = document.querySelector('#canvas');
+  let ctx = canvas.getContext('2d');
+  let imageClicked = false;
 
   next.onclick = function(e){
     e.preventDefault();
@@ -29,5 +32,12 @@
     let element = e.target.nodeName === 'IMG' ? e.target : e.target.children[0];
     console.log(element);
   }
+
+  function refreshCanvas(){
+    if(!imageClicked){ return; }
+    
+  }
+
   refreshClickable();
+  refreshCanvas();
 })();
