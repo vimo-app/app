@@ -15,6 +15,7 @@ $navigation-bg: hsl(210, 50%, 50%);
 $navigation-color: hsl(0, 0%, 95%);
 
 // COLORS
+$color-black: #111;
 $color-white: #FCFCFC;
 $color-red: hsl(0, 50%, 50%);
 $color-blue: hsl(210, 50%, 50%);
@@ -22,7 +23,10 @@ $color-instagram: #c32aa3;
 $color-facebook: #3b5998;
 
 // ALBUM
-$album-card-dimensions: 30rem;
+$album-card-dimensions: 25rem;
+
+// PHOTO
+$photo-card-dimensions: 25rem;
 
 // IMAGE
 $image-card-dimensions: 30rem;

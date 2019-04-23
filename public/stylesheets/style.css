@@ -305,8 +305,8 @@ a {
   line-height: 1.8; }
 
 .card {
-  width: 30rem;
-  height: 30rem;
+  width: 25rem;
+  height: 25rem;
   position: relative;
   margin: 2rem;
   display: flex;
@@ -333,7 +333,7 @@ a {
     color: #404040; }
 
 .album {
-  width: 30rem;
+  width: 25rem;
   height: auto;
   position: relative;
   margin: 2rem;
@@ -356,12 +356,42 @@ a {
     width: 100%;
     height: auto; }
 
+<<<<<<< HEAD
 .image {
   width: 30rem;
   height: 30rem;
   background-color: #ededed;
   text-align: center; }
   .image__image {
+=======
+.photo {
+  width: 25rem;
+  height: 25rem;
+  background-color: #efefef;
+  position: relative;
+  margin: 0.5rem; }
+  .photo__actions {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(252, 252, 252, 0.7);
+    border-radius: 0 0 .5rem .5rem; }
+    .photo__actions-option {
+      padding: 1rem; }
+      .photo__actions-option a {
+        color: #111; }
+      .photo__actions-option:hover {
+        background-color: #fcfcfc;
+        border-radius: 0 0 .5rem .5rem; }
+  .photo__image {
+    width: 100%;
+>>>>>>> 49d79098b1c4789083da6595c9794ca85b8bd61b
     height: 100%;
     object-fit: contain; }
 
@@ -375,7 +405,7 @@ a {
 
 .album-list {
   display: flex;
-  flex-basis: 30rem;
+  flex-basis: 25rem;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
@@ -408,6 +438,7 @@ a {
       padding-left: 0;
       font-size: 3.6rem; }
 
+<<<<<<< HEAD
 .images-list {
   display: flex;
   flex-wrap: wrap;
@@ -417,5 +448,12 @@ a {
     font-weight: 300; }
   .images-list > div {
     margin: 1rem; }
+=======
+.photo-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap; }
+>>>>>>> 49d79098b1c4789083da6595c9794ca85b8bd61b
 
 /*# sourceMappingURL=style.css.map */
