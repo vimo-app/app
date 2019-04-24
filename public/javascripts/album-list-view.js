@@ -10,6 +10,7 @@
   let img;
 
   let stage = new createjs.Stage('canvas');
+  
 
   next.onclick = function(e){
     e.preventDefault();
@@ -41,14 +42,12 @@
       selectedImage = element;
       img = new createjs.Bitmap(element.src);
       if(img.image.width > img.image.height){
-        img.scaleX = img.scaleY = canvas.width/img.image.width;
+        img.scale = canvas.width/img.image.width;
       }else if(img.image.height > img.image.width){
-        img.scaleX = img.scaleY = canvas.height/img.image.height; 
+        img.scale = canvas.height/img.image.height; 
       }else{
-        img.scaleX = img.scaleY = canvas.height / img.image.height;
-        
+        img.scale = canvas.height / img.image.height;
       }
-
 
       img.x = (stage.canvas.width - img.image.width * img.scaleX) / 2;
       img.y = (stage.canvas.height - img.image.height * img.scaleY) / 2;
@@ -71,5 +70,13 @@
     }
   }
 
+  function resizeCanvas(){
+    stage.canvas.width = canvas.parentNode.clientWidth;
+    stage.canvas.height = stage.canvas.width*9/16;
+  }
+
+  window.onresize = resizeCanvas;
+
   refreshClickable();
+  resizeCanvas();
 })();

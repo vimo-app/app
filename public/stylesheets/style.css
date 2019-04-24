@@ -473,8 +473,6 @@ a {
   .images-list > div {
     margin: 1rem; }
   .images-list__canvas {
-    width: 100%;
-    height: 60rem;
     margin-top: 3rem;
     background-color: #333; }
 
