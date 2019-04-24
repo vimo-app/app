@@ -10,6 +10,7 @@
 
   &__paginate{
     cursor: pointer;
+    font-size: 2.4rem;
   }
 
   &__image{
@@ -32,19 +33,19 @@
     }
 
     &:nth-child(2) img{
-      transform: rotateY(-75deg);
+      transform: scale(.5);
     }
     &:nth-child(3) img{
-      transform: rotateY(-45deg);
+      transform: scale(.75);
     }
     &:nth-child(4) img{
-      transform: rotateY(0);
+      transform: scale(1.25);
     }
     &:nth-child(5) img{
-      transform: rotateY(45deg);
+      transform: scale(.75);
     }
     &:nth-child(6) img{
-      transform: rotateY(75deg);
+      transform: scale(.5);
     }
   }
 }
