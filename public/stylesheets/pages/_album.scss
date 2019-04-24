@@ -14,6 +14,6 @@
 
   &__canvas{
     margin-top: 3rem;
-    background-color: $text-color;
+    background-color: rgba($text-color, .1);
   }
 }
