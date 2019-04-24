@@ -4,7 +4,7 @@ const Schema   = mongoose.Schema;
 const pictureSchema = new Schema({
   imgName: String,
   imgPath: String,
-  albumId: { type : Schema.Types.ObjectId, ref: 'Album' }
+  albumID: { type : Schema.Types.ObjectId, ref: 'Album' }
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });

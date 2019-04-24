@@ -6,7 +6,7 @@
     </div>
     <h1 class="focused-content__title">Create a new Album</h1>
     <div class="focused-content__action">
-      <form action="/pict/newPicture" method="POST" id="form" class="form" enctype="multipart/form-data">
+      <form action="/{{user._id}}" method="POST" id="form" class="form" enctype="multipart/form-data">
         <div class="form__group">
           <label for="name">Album name</label>
           <input id="name" type="text" name="name" placeholder="The album name">
