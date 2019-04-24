@@ -56,20 +56,23 @@
   stage.canvas.width = containerMeasures.width;
   stage.canvas.height = containerMeasures.width*9/16;
 
-  next.onclick = function(e){
-    e.preventDefault();
-    let firstImage = sliderContent.children[1];
-    next.insertAdjacentElement('beforebegin', firstImage);
-    refreshClickable();
+  let slideNext = function(e){
+      e.preventDefault();
+      let firstImage = sliderContent.children[1];
+      next.insertAdjacentElement('beforebegin', firstImage);
+      refreshClickable();
   };
 
-  prev.onclick = function(e){
+  let slidePrev = function(e){
     e.preventDefault();
     let imageNumber = sliderContent.children.length;
     let lastImage = sliderContent.children[imageNumber-2];
     prev.insertAdjacentElement('afterend', lastImage);
     refreshClickable();
   };
+
+  next.onclick = slideNext;
+  prev.onclick = slidePrev;
 
   function refreshClickable(){
     for(let i = 1, max = sliderContent.children.length - 2; i < max; i += 1){
@@ -81,6 +84,11 @@
     stage.clear();
     let element = e.target.nodeName === 'IMG' ? e.target : e.target.children[0];
     if(selectedImage !== element){
+      resetFilters();
+      if(sliderContent.children[2].children[0] === element){ slidePrev(e);}
+      if(sliderContent.children[4].children[0] === element){ slideNext(e);}
+      if(sliderContent.children[1].children[0] === element){ slidePrev(e); slidePrev(e);}
+      if(sliderContent.children[5].children[0] === element){ slideNext(e); slideNext(e);}
       stage.removeAllChildren();
 
       canvas.style.display = 'block';
@@ -196,6 +204,23 @@
     }
   }
 
+  function resetFilters(){
+    filters.brightness.input.value = 0;
+    filters.contrast.input.value = 0;
+    filters.hue.input.value = 0;
+    filters.saturation.input.value = 0;
+    filters.blurX.input.value = 0;
+    filters.blurY.input.value = 0;
+    filters.blurQuality.input.value = 1;
+
+    filters.brightness.label.innerText = '+000.0';
+    filters.contrast.label.innerText = '+000.0';
+    filters.hue.label.innerText = '+000.0';
+    filters.saturation.label.innerText = '+000.0';
+    filters.blurX.label.innerText = '+000.0';
+    filters.blurY.label.innerText = '+000.0';
+    filters.blurQuality.label.innerText = '01';
+  }
 
   refreshClickable();
   resizeCanvas();
