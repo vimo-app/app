@@ -38,10 +38,10 @@ router.get("/:id/albums", (req, res, next) => {
   const id = req.params.id
   User
     .findById(id)
-    .populate("userId")
     .then(user => {
       Album
         .find({ userId: user._id })
+        .populate("userId")
         .then(album => {
           console.log(album)
           res.json(album)

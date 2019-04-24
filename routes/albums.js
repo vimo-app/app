@@ -24,17 +24,18 @@ router.get('/:id/photos', (req, res) => {
   const id = req.params.id
   Album
     .findById(id)
-    .populate("albumId")
+    // .populate("albumId")
     .then(album => {
       Picture
         .find({ albumId: album._id })
+        .populate("albumId")
         .then(photo => {
           console.log(photo);
-          // res.json(photo);
-          res.render("partials/cards/picture", {photo})
+          res.json(photo);
+          // res.render("partials/cards/picture", {photo})
 
         });
-      // res.json(photo)
+      res.json(photo)
       // res.render("profile/profile", photo)
     })
     .catch(error => {
@@ -42,22 +43,22 @@ router.get('/:id/photos', (req, res) => {
     });
 });
 
-router.post('/newAlbum/:id', uploadCloud.single('photos'), (req, res, next) => {
-  const album = {
-    userId: req.params.id,
-    name: req.body.name,
-  };
+// router.post('/newAlbum/:id', uploadCloud.single('photos'), (req, res, next) => {
+//   const album = {
+//     userId: req.params.id,
+//     name: req.body.name,
+//   };
 
-  const newAlbum = new Album(album);
+//   const newAlbum = new Album(album);
 
-  newAlbum.save()
-    .then(album => {
-      res.json(album)
-      // res.redirect('/mock/profile');
-    })
-    .catch(error => {
-      console.log(error);
-    });
-});
+//   newAlbum.save()
+//     .then(album => {
+//       res.json(album)
+//       // res.redirect('/mock/profile');
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+// });
 
 module.exports = router;
