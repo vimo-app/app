@@ -31,16 +31,16 @@
             <span class="slider__editor-tools-tool-title">Color filter</span>
             <div class="slider__editor-tools-tool-config">
               <div class="slider__editor-tools-tool-config-group">
-                <label for="brightness">Brightness</label><input type="range" id="brightness" min="-255" max="255" value="0" step=".5"><span id="brightness-label">0.0</span>
+                <label for="brightness">Brightness</label><input type="range" id="brightness" min="-255" max="255" value="0" step=".5"><span id="brightness-label">000.0</span>
               </div>
               <div class="slider__editor-tools-tool-config-group">
-                <label for="contrast">Contrast</label><input type="range" id="contrast" min="-100" max="100" value="0" step=".5"><span id="contrast-label">0.0</span>
+                <label for="contrast">Contrast</label><input type="range" id="contrast" min="-100" max="100" value="0" step=".5"><span id="contrast-label">000.0</span>
               </div>
               <div class="slider__editor-tools-tool-config-group">
-                <label for="hue">Hue</label><input type="range" id="hue" min="-180" max="180" value="0" step=".5"><span id="hue-label">0.0</span>
+                <label for="hue">Hue</label><input type="range" id="hue" min="-180" max="180" value="0" step=".5"><span id="hue-label">000.0</span>
               </div>
               <div class="slider__editor-tools-tool-config-group">
-                <label for="saturation">Saturation</label><input type="range" id="saturation" min="-100" max="100" value="0" step=".5"><span id="saturation-label">0.0</span>
+                <label for="saturation">Saturation</label><input type="range" id="saturation" min="-100" max="100" value="0" step=".5"><span id="saturation-label">000.0</span>
               </div>
             </div>
           </div>
@@ -48,13 +48,13 @@
             <span class="slider__editor-tools-tool-title">Blur filter</span>
             <div class="slider__editor-tools-tool-config">
               <div class="slider__editor-tools-tool-config-group">
-                <label for="blur-x">X radius</label><input type="range" id="blur-x" min="-100" max="100" value="0" step=".5"><span id="blur-x-label">0.0</span>
+                <label for="blur-x">X radius</label><input type="range" id="blur-x" min="0" max="100" value="0" step=".5"><span id="blur-x-label">000.0</span>
               </div>
               <div class="slider__editor-tools-tool-config-group">
-                <label for="blur-y">Y radius</label><input type="range" id="blur-y" min="-100" max="100" value="0" step=".5"><span id="blur-y-label">0.0</span>
+                <label for="blur-y">Y radius</label><input type="range" id="blur-y" min="0" max="100" value="0" step=".5"><span id="blur-y-label">000.0</span>
               </div>
               <div class="slider__editor-tools-tool-config-group">
-                <label for="blur-quality">Quality</label><input type="range" id="blur-quality" min="-100" max="100" value="0" step=".5"><span id="blur-quality-label">0.0</span>
+                <label for="blur-quality">Quality</label><input type="range" id="blur-quality" min="0" max="20" value="1" step="1"><span id="blur-quality-label">1</span>
               </div>
             </div>
           </div>
@@ -64,5 +64,4 @@
   </div>
 </div>
 <script src="/javascripts/libs/easeljs.min.js"></script>
-{{!-- <script src="/javascripts/libs/ColorMatrixFilter.js"></script> --}}
 <script src="/javascripts/album-list-view.js"></script>

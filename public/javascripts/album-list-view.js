@@ -164,16 +164,19 @@ function changeLabelValue(e){
 
 function applyFilters(){
   if(img){
-    var matrix = new createjs.ColorMatrix()
+    var color = new createjs.ColorMatrix()
           .adjustBrightness(+filters.brightness.input.value)
           .adjustContrast(+filters.contrast.input.value)
           .adjustHue(+filters.hue.input.value)
           .adjustSaturation(+filters.saturation.input.value);
+    var blur = new createjs.BlurFilter(+filters.blurX.input.value, +filters.blurY.input.value, +filters.blurQuality.input.value);
 
     img.filters = [
-      new createjs.ColorMatrixFilter(matrix)
+      new createjs.ColorMatrixFilter(color),
+      blur
     ];
-    img.cache(0, 0, 1600, 1600);
+    var bounds = img.getBounds();
+    img.cache(0, 0, canvas.width*2, canvas.height*2);
     stage.update();
   }
 }
@@ -181,4 +184,3 @@ function applyFilters(){
 
 refreshClickable();
 resizeCanvas();
-//applyFilters();
