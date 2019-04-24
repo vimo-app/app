@@ -3,25 +3,27 @@ const passport = require('passport');
 const router = express.Router();
 const ensureLogin = require("connect-ensure-login");
 const uploadCloud = require('../config/cloudinary.js');
-const Album = require('../models/album');
-const Picture = require('../models/picture');
-const User = require('../models/user');
+const Album = require('../models/Album');
+const Picture = require('../models/Picture');
+const User = require('../models/User');
 
-router.get('/:id', (req, res) => {
-  const id = req.params.id
-  User
-    .findById(id)
-    .populate("albumID")
-    .then(album => {
-      console.log(album);
-      res.json(album)
-      // res.render("profile/profile", album)
-    })
-    .catch(error => {
-      console.log('Error while getting the posts from the DB: ', error);
-    });
-  // res.render('profile/new-album');
-});
+
+
+// router.get('/:id', (req, res) => {
+//   const id = req.params.id
+//   User
+//     .findById(id)
+//     .populate("albumID")
+//     .then(album => {
+//       console.log(album);
+//       res.json(album)
+//       // res.render("profile/profile", album)
+//     })
+//     .catch(error => {
+//       console.log('Error while getting the posts from the DB: ', error);
+//     });
+//   // res.render('profile/new-album');
+// });
 
 // router.get('/:id/photos', (req, res) => {
 //   const id = req.params.id
@@ -46,27 +48,26 @@ router.get('/:id', (req, res) => {
 //     });
 // });
 
-router.post('/:userID', uploadCloud.array('photos'), (req, res, next) => {
-  // console.log(req.files);
-  // console.log("XXXXXXXX");
-  const imageArray = req.files.map(img => ({
-    name: req.body.name,
-    userID: req.params.userID
-  }));
-  console.log(imageArray);
-  Album
-    .insertMany(imageArray)
-    .then(album => {
-      console.log(album);
-      res.json(album)
-      // res.redirect('/mock/profile');
-    })
-    .catch(error => {
-      console.log(error);
-    });
-});
+// router.post('/:userID', uploadCloud.array('photos'), (req, res, next) => {
+//   // console.log(req.files);
+//   // console.log("XXXXXXXX");
+//   const imageArray = req.files.map(img => ({
+//     name: req.body.name,
+//     userID: req.params.userID
+//   }));
+//   console.log(imageArray);
+//   Album
+//     .insertMany(imageArray)
+//     .then(album => {
+//       console.log(album);
+//       res.json(album)
+//       // res.redirect('/mock/profile');
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+// });
 
-module.exports = router;
 
 // router.post("/:username/:albumId", uploadCloud.array('photos'), (req, res, next) => {
 //   const imageArray = req.files.map(img => ({
@@ -84,3 +85,5 @@ module.exports = router;
 //       console.log(error);
 //     });
 // });
+
+module.exports = router;

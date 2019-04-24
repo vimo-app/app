@@ -3,7 +3,7 @@ const Schema   = mongoose.Schema;
 
 const albumSchema = new Schema({
   name: String,
-  pictureID: [{ type : Schema.Types.ObjectId, ref: 'Picture' }]
+  pictures: [{ type : Schema.Types.ObjectId, ref: 'Picture' }]
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });

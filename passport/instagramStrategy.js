@@ -1,6 +1,6 @@
 const InstagramStrategy = require('passport-instagram').Strategy;
 const passport = require('passport');
-const User = require('../models/user');
+const User = require('../models/User');
 
 // const {INSTAGRAM_ID, INSTAGRAM_SECRET} = process.env;
 

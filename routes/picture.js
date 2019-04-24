@@ -3,23 +3,8 @@ const passport = require('passport');
 const router = express.Router();
 const ensureLogin = require("connect-ensure-login");
 const uploadCloud = require('../config/cloudinary.js');
-const Album = require('../models/album');
-const Picture = require('../models/picture');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const Album = require('../models/Album');
+const Picture = require('../models/Picture');
 
 router.get('/:idPhotos', (req, res) => {
   const idPhotos = req.params.idPhotos
