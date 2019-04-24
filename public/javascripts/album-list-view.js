@@ -45,9 +45,9 @@ filters.brightness.input.oninput = changeLabelValue;
 filters.contrast.input.oninput = changeLabelValue;
 filters.hue.input.oninput = changeLabelValue;
 filters.saturation.input.oninput = changeLabelValue;
-filters.blurX.input.onchange = changeLabelValue;
-filters.blurY.input.onchange = changeLabelValue;
-filters.blurQuality.input.onchange = changeLabelValue;
+filters.blurX.input.oninput = changeLabelValue;
+filters.blurY.input.oninput = changeLabelValue;
+filters.blurQuality.input.oninput = changeLabelValue;
 
 let stage = new createjs.Stage('canvas');
 createjs.Ticker.addEventListener("tick", stage);
@@ -138,25 +138,25 @@ function changeLabelValue(e){
   let element = e.target.id;
   switch(element){
     case 'brightness':
-      filters.brightness.label.innerText = +e.target.value > 100 ? `+${parseInt(e.target.value).toFixed(1)}` : +e.target.value > 10 ? `+0${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 0 ? `+00${parseInt(e.target.value).toFixed(1)}` : +e.target.value > -10 ? `-00${parseInt(e.target.value).toFixed(1)}` : +e.target.value > -100 ? `-0${Math.abs(parseInt(e.target.value)).toFixed(1)}` : `${parseInt(e.target.value).toFixed(1)}`;
+      filters.brightness.label.innerText = +e.target.value >= 100 ? `+${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 10 ? `+0${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 0 ? `+00${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= -10 ? `-00${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= -100 ? `-0${Math.abs(parseInt(e.target.value)).toFixed(1)}` : `${parseInt(e.target.value).toFixed(1)}`;
     break;
     case 'contrast':
-      filters.contrast.label.innerText = +e.target.value > 100 ? `+${parseInt(e.target.value).toFixed(1)}` : +e.target.value > 10 ? `+0${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 0 ? `+00${parseInt(e.target.value).toFixed(1)}` : +e.target.value > -10 ? `-00${parseInt(e.target.value).toFixed(1)}` : +e.target.value > -100 ? `-0${Math.abs(parseInt(e.target.value)).toFixed(1)}` : `${parseInt(e.target.value).toFixed(1)}`;
+      filters.contrast.label.innerText = +e.target.value >= 100 ? `+${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 10 ? `+0${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 0 ? `+00${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= -10 ? `-00${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= -100 ? `-0${Math.abs(parseInt(e.target.value)).toFixed(1)}` : `${parseInt(e.target.value).toFixed(1)}`;
     break;
     case 'hue':
-      filters.hue.label.innerText = +e.target.value > 100 ? `+${parseInt(e.target.value).toFixed(1)}` : +e.target.value > 10 ? `+0${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 0 ? `+00${parseInt(e.target.value).toFixed(1)}` : +e.target.value > -10 ? `-00${parseInt(e.target.value).toFixed(1)}` : +e.target.value > -100 ? `-0${Math.abs(parseInt(e.target.value)).toFixed(1)}` : `${parseInt(e.target.value).toFixed(1)}`;
+      filters.hue.label.innerText = +e.target.value >= 100 ? `+${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 10 ? `+0${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 0 ? `+00${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= -10 ? `-00${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= -100 ? `-0${Math.abs(parseInt(e.target.value)).toFixed(1)}` : `${parseInt(e.target.value).toFixed(1)}`;
     break;
     case 'saturation':
-      filters.saturation.label.innerText = +e.target.value > 100 ? `+${parseInt(e.target.value).toFixed(1)}` : +e.target.value > 10 ? `+0${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 0 ? `+00${parseInt(e.target.value).toFixed(1)}` : +e.target.value > -10 ? `-00${parseInt(e.target.value).toFixed(1)}` : +e.target.value > -100 ? `-0${Math.abs(parseInt(e.target.value)).toFixed(1)}` : `${parseInt(e.target.value).toFixed(1)}`;
+      filters.saturation.label.innerText = +e.target.value >= 100 ? `+${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 10 ? `+0${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 0 ? `+00${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= -10 ? `-00${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= -100 ? `-0${Math.abs(parseInt(e.target.value)).toFixed(1)}` : `${parseInt(e.target.value).toFixed(1)}`;
     break;
     case 'blur-x':
-      filters.blurX.label.innerText = e.target.value;
+      filters.blurX.label.innerText = +e.target.value >= 100 ? `${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 10 ? `0${parseInt(e.target.value).toFixed(1)}` : `00${parseInt(e.target.value).toFixed(1)}`;
     break;
     case 'blur-y':
-      filters.blurY.label.innerText = e.target.value;
+      filters.blurY.label.innerText = +e.target.value >= 100 ? `${parseInt(e.target.value).toFixed(1)}` : +e.target.value >= 10 ? `0${parseInt(e.target.value).toFixed(1)}` : `00${parseInt(e.target.value).toFixed(1)}`;
     break;
     case 'blur-quality':
-      filters.blurQuality.label.innerText = e.target.value;
+      filters.blurQuality.label.innerText = +e.target.value < 10 ? `0${e.target.value}` : e.target.value;
     break;
   }
   applyFilters();
