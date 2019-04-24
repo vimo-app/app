@@ -82,6 +82,12 @@
     let element = e.target.nodeName === 'IMG' ? e.target : e.target.children[0];
     if(selectedImage !== element){
       stage.removeAllChildren();
+
+      canvas.style.display = 'block';
+      showWidget();
+      setTimeout(() => {
+        canvas.style.opacity = 1;
+      }, 300);
       
       selectedImage = element;
       img = new createjs.Bitmap(element.src);
@@ -101,6 +107,15 @@
     }else{
       imageClicked = false;
       selectedImage = null;
+      canvas.style.opacity = 0;
+      widget.style.transform = 'translateX(50rem)';
+      setTimeout(() => {
+        canvas.style.display = 'none';
+      }, 300);
+      setTimeout(() => {
+        hideWidget();
+        widget.style.transform = 'translateX(50rem)';
+      }, 1500);
     }
     stage.update();
     reloadCanvas();

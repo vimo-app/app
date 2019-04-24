@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  margin-top: 4rem;
   
   &__title{
     font-weight: $font-weight-light;
@@ -15,5 +16,8 @@
   &__canvas{
     margin-top: 3rem;
     background-color: rgba($text-color, .1);
+    transition: all .3s ease-in-out;
+    display: none;
+    opacity: 0;
   }
 }

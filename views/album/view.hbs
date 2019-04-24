@@ -2,11 +2,7 @@
 <div class="content">
   <div class="normal-content">
     <h2 class="images-list__title">Album name</h1>
-    <div class="images-list" id="image-list" style="display:none;">
-      {{> cards/card url='/mock/upload-images' title='Upload photos'}}
-      {{> cards/photo}}
-    </div>
-    <canvas id="canvas" class="images-list__canvas">Your browser is not supported</canvas>
+    <canvas id="canvas" class="images-list__canvas" >Your browser is not supported</canvas>
     <div class="slider">
       <ul id="slider__content">
         <li class="slider__paginate" id="prev"><i class="fas fa-arrow-left"></i></li>
@@ -22,8 +18,8 @@
       </ul>
       <div class="slider__editor" id="widget">
         <div class="slider__editor-widget">
-          <i class="fas fa-eye hidden" id="widget-show"></i>
-          <i class="fas fa-eye-slash" id="widget-hide"></i>
+          <i class="fas fa-eye" id="widget-show"></i>
+          <i class="fas fa-eye-slash hidden" id="widget-hide"></i>
           <span>Edit photo</span>
         </div>
         <div class="slider__editor-tools" id="widget-tools">
@@ -59,6 +55,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="images-list" id="image-list">
+        {{> cards/card url='/mock/upload-images' title='Upload photos'}}
       </div>
     </div>
   </div>
