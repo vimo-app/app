@@ -1,16 +1,51 @@
 (function(){
   let imageList = document.querySelector('#image-list');
-  let sliderContent = document.querySelector('#slider-content')
+  let sliderContent = document.querySelector('#slider__content');
+  let widget = document.querySelector('#widget');
+  let widgetShow = document.querySelector('#widget-show');
+  let widgetHide = document.querySelector('#widget-hide');
+  let widgetTools = document.querySelector('#widget-tools');
   let next = document.querySelector('#next');
   let prev = document.querySelector('#prev');
   let canvas = document.querySelector('#canvas');
-  let ctx = canvas.getContext('2d');
+  let filters = {
+    brightness: {
+      label: document.querySelector('#brightness-label'),
+      input: document.querySelector('#brightness'),
+    },
+    contrast: {
+      label: document.querySelector('#contrast-label'),
+      input: document.querySelector('#contrast'),
+    },
+    hue: {
+      label: document.querySelector('#hue-label'),
+      input: document.querySelector('#hue'),
+    },
+    saturation: {
+      label: document.querySelector('#saturation-label'),
+      input: document.querySelector('#saturation'),
+    },
+    blurX: {
+      label: document.querySelector('#blur-x-label'),
+      input: document.querySelector('#blur-x'),
+    },
+    blurY: {
+      label: document.querySelector('#blur-y-label'),
+      input: document.querySelector('#blur-y'),
+    },
+    blurQuality: {
+      label: document.querySelector('#blur-quality-label'),
+      input: document.querySelector('#blur-quality'),
+    },
+  }
   let imageClicked = false;
   let selectedImage;
   let img;
 
   let stage = new createjs.Stage('canvas');
-  
+  let containerMeasures = canvas.parentNode.getBoundingClientRect();
+  stage.canvas.width = containerMeasures.width;
+  stage.canvas.height = containerMeasures.width*9/16;
 
   next.onclick = function(e){
     e.preventDefault();
@@ -75,7 +110,22 @@
     stage.canvas.height = stage.canvas.width*9/16;
   }
 
-  window.onresize = resizeCanvas;
+  widgetShow.onclick = showWidget;
+  widgetHide.onclick = hideWidget;
+
+  function showWidget(){
+    widget.style.transform = `translateX(0)`;
+    widgetShow.style.display = 'none';
+    widgetHide.style.display = 'inline-block';
+    widgetTools.style.opacity = 1;
+  }
+  function hideWidget(){
+    widget.style.transform = `translateX(25rem)`;
+    widgetHide.style.display = 'none';
+    widgetShow.style.display = 'inline-block';
+    widgetTools.style.opacity = 0;
+  }
+  
 
   refreshClickable();
   resizeCanvas();
