@@ -1,7 +1,16 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
+const Album = require("../models/album");
+
 
 router.get('/profile', (req, res, next) => {
+  Album
+    .find()
+    .populate("userId")
+    
+  // POPULATE COLLECTIONS
+  // FIND USER ID / 
+
   res.render('profile/profile');
 });
 router.get('/album', (req, res, next) => {
