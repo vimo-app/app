@@ -8,9 +8,13 @@
   </div>
   <div class="navigation__list">
     <a href="/" class="navigation__list-link"><i class="fas fa-home"></i></a>
-    <a href="/mock/profile" class="navigation__list-link"><i class="fas fa-user"></i></a>
+    {{#if this}}
+    <a href="/user/{{this._id}}" class="navigation__list-link"><i class="fas fa-user"></i></a>
+    <a href="/auth/logout" class="navigation__list-link">Logout</a>
+    {{/if}}
+    {{#unless this}}
     <a href="/auth/login" class="navigation__list-link">Login</a>
     <a href="/auth/signup" class="navigation__list-link">Signup</a>
-    <a href="/auth/logout" class="navigation__list-link">Logout</a>
+    {{/unless}}
   </div>
 </nav>
