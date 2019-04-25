@@ -9,6 +9,7 @@
   function loadImages(search ,page = 1){
     axios.get(`${window.location.origin}/flickr/home/photos/${search}/${page}`)
     .then(response => {
+      console.log(response.data);
       let moreImages = true;
       let images = response.data.response;
       for(let image of images){
@@ -34,7 +35,7 @@
         return;
       }
       spinner.onclick = loadImages.bind(null, search, pageCounter++);
-      if(pageCounter < 5){ loadImages(pageCounter);}
+      if(pageCounter < 5){ loadImages(search, pageCounter);}
     });
   }
 
