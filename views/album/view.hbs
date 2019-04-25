@@ -1,0 +1,66 @@
+{{> navigation/navigation}}
+<div class="content">
+  <div class="normal-content">
+    <h2 class="images-list__title">Album name</h1>
+    <canvas id="canvas" class="images-list__canvas" >Your browser is not supported</canvas>
+    <div class="slider">
+      <ul id="slider__content">
+        <li class="slider__paginate" id="prev"><i class="fas fa-arrow-left"></i></li>
+        <li class="slider__image"><img src="/images/test/test-1.jpg" alt=""></li>
+        <li class="slider__image"><img src="/images/test/test-2.jpg" alt=""></li>
+        <li class="slider__image"><img src="/images/test/test-3.jpg" alt=""></li>
+        <li class="slider__image"><img src="/images/test/test-4.jpg" alt=""></li>
+        <li class="slider__image"><img src="/images/test/test-5.jpg" alt=""></li>
+        <li class="slider__image"><img src="/images/test/test-6.jpg" alt=""></li>
+        <li class="slider__image"><img src="/images/test/test-7.jpg" alt=""></li>
+        <li class="slider__image"><img src="/images/test/test-8.jpg" alt=""></li>
+        <li class="slider__paginate" id="next"><i class="fas fa-arrow-right"></i></li>
+      </ul>
+      <div class="slider__editor" id="widget">
+        <div class="slider__editor-widget">
+          <i class="fas fa-eye" id="widget-show"></i>
+          <i class="fas fa-eye-slash hidden" id="widget-hide"></i>
+          <span>Edit photo</span>
+        </div>
+        <div class="slider__editor-tools" id="widget-tools">
+          <div class="slider__editor-tools-tool">
+            <span class="slider__editor-tools-tool-title">Color filter</span>
+            <div class="slider__editor-tools-tool-config">
+              <div class="slider__editor-tools-tool-config-group">
+                <label for="brightness">Brightness</label><input type="range" id="brightness" min="-255" max="255" value="0" step=".5"><span id="brightness-label">+000.0</span>
+              </div>
+              <div class="slider__editor-tools-tool-config-group">
+                <label for="contrast">Contrast</label><input type="range" id="contrast" min="-100" max="100" value="0" step=".5"><span id="contrast-label">+000.0</span>
+              </div>
+              <div class="slider__editor-tools-tool-config-group">
+                <label for="hue">Hue</label><input type="range" id="hue" min="-180" max="180" value="0" step=".5"><span id="hue-label">+000.0</span>
+              </div>
+              <div class="slider__editor-tools-tool-config-group">
+                <label for="saturation">Saturation</label><input type="range" id="saturation" min="-100" max="100" value="0" step=".5"><span id="saturation-label">+000.0</span>
+              </div>
+            </div>
+          </div>
+          <div class="slider__editor-tools-tool">
+            <span class="slider__editor-tools-tool-title">Blur filter</span>
+            <div class="slider__editor-tools-tool-config">
+              <div class="slider__editor-tools-tool-config-group">
+                <label for="blur-x">X radius</label><input type="range" id="blur-x" min="0" max="100" value="0" step=".5"><span id="blur-x-label">000.0</span>
+              </div>
+              <div class="slider__editor-tools-tool-config-group">
+                <label for="blur-y">Y radius</label><input type="range" id="blur-y" min="0" max="100" value="0" step=".5"><span id="blur-y-label">000.0</span>
+              </div>
+              <div class="slider__editor-tools-tool-config-group">
+                <label for="blur-quality">Quality</label><input type="range" id="blur-quality" min="0" max="20" value="1" step="1"><span id="blur-quality-label">01</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="images-list" id="image-list">
+        {{> cards/card url='/mock/upload-images' title='Upload photos'}}
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/javascripts/libs/easeljs.min.js"></script>
+<script src="/javascripts/album-list-view.js"></script>

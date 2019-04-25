@@ -356,6 +356,128 @@ a {
     width: 100%;
     height: auto; }
 
+.photo {
+  width: 30rem;
+  height: 30rem;
+  background-color: #efefef;
+  position: relative;
+  margin: 0.5rem; }
+  .photo:hover .photo__actions {
+    opacity: 1; }
+  .photo__actions {
+    cursor: pointer;
+    display: flex;
+    opacity: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(252, 252, 252, 0.7);
+    border-radius: 0 0 .5rem .5rem;
+    transition: opacity .3s ease-in-out; }
+    .photo__actions-option {
+      padding: 1rem; }
+      .photo__actions-option a {
+        color: #111; }
+      .photo__actions-option:hover {
+        background-color: #fcfcfc;
+        border-radius: 0 0 .5rem .5rem; }
+  .photo__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; }
+
+.slider {
+  margin-top: 3rem; }
+  .slider > ul {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center; }
+  .slider__paginate {
+    cursor: pointer;
+    font-size: 2.4rem; }
+  .slider__image {
+    width: 10rem;
+    margin: .5rem 1rem;
+    cursor: pointer;
+    display: none; }
+    .slider__image img {
+      width: 100%;
+      transition: all .3s ease-out; }
+    .slider__image:nth-child(2), .slider__image:nth-child(3), .slider__image:nth-child(4), .slider__image:nth-child(5), .slider__image:nth-child(6) {
+      display: inline-block; }
+    .slider__image:nth-child(2) img {
+      transform: scale(0.5); }
+    .slider__image:nth-child(3) img {
+      transform: scale(0.75); }
+    .slider__image:nth-child(4) img {
+      transform: scale(1.25); }
+    .slider__image:nth-child(5) img {
+      transform: scale(0.75); }
+    .slider__image:nth-child(6) img {
+      transform: scale(0.5); }
+  .slider__editor {
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    top: 15vh;
+    height: 70vh;
+    min-width: 30rem;
+    background-color: #d4d4d4;
+    color: #333;
+    border-top: 1px solid rgba(38, 38, 38, 0.6);
+    border-left: 1px solid rgba(38, 38, 38, 0.6);
+    border-bottom: 1px solid rgba(38, 38, 38, 0.6);
+    border-radius: .5rem 0 0 .5rem;
+    transition: all 1.5s ease-in-out;
+    overflow-y: scroll;
+    transform: translateX(50rem); }
+    .slider__editor-widget {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 2.4rem;
+      padding: .5rem;
+      margin: 0 1rem;
+      border-bottom: 1px solid rgba(38, 38, 38, 0.3); }
+      .slider__editor-widget i {
+        cursor: pointer; }
+        .slider__editor-widget i.hidden {
+          display: none; }
+        .slider__editor-widget i:hover {
+          color: #595959; }
+    .slider__editor-tools {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 1.5s;
+      opacity: 0; }
+      .slider__editor-tools-tool {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem; }
+        .slider__editor-tools-tool-title {
+          margin: .25rem 0; }
+        .slider__editor-tools-tool-config {
+          display: flex;
+          flex-direction: column;
+          align-items: center; }
+          .slider__editor-tools-tool-config-group {
+            display: flex;
+            align-items: center;
+            margin: .5rem 0; }
+            .slider__editor-tools-tool-config-group > label {
+              padding: 1rem; }
+            .slider__editor-tools-tool-config-group > input {
+              padding: 1rem; }
+            .slider__editor-tools-tool-config-group > span {
+              padding: 1rem; }
+
 .content {
   display: flex;
   flex-direction: row;
@@ -398,5 +520,22 @@ a {
       padding-top: 0;
       padding-left: 0;
       font-size: 3.6rem; }
+
+.images-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 4rem; }
+  .images-list__title {
+    font-weight: 300; }
+  .images-list > div {
+    margin: 1rem; }
+  .images-list__canvas {
+    margin-top: 3rem;
+    background-color: rgba(51, 51, 51, 0.1);
+    transition: all .3s ease-in-out;
+    display: none;
+    opacity: 0; }
 
 /*# sourceMappingURL=style.css.map */
