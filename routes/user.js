@@ -7,7 +7,7 @@ const uploadCloud = require('../config/cloudinary.js');
 const User = require("../models/User");
 const Album = require("../models/Album");
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
   User.findById(req.params.id)
     .populate({ path: 'albums', populate: { path: 'pictures', model: 'Picture' } })
     .then(user => {

@@ -7,13 +7,12 @@ const Album = require('../models/Album');
 const Picture = require('../models/Picture');
 const User = require('../models/User');
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
   const id = req.params.id;
 
   Album.findById(id)
     .populate("pictures")
     .then(album => {
-      console.log(album)
       res.render('album/view', { album, user: req.user });
     });
 });
