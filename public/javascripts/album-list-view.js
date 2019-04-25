@@ -40,7 +40,7 @@
   };
   let imageClicked = false;
   let selectedImage;
-  let img;
+  let img, bmp;
 
   filters.brightness.input.oninput = changeLabelValue;
   filters.contrast.input.oninput = changeLabelValue;
@@ -96,19 +96,22 @@
       showWidget();
       
       selectedImage = element;
-      img = new createjs.Bitmap(element.src);
-      if(img.image.width > img.image.height){
-        img.scale = canvas.width/img.image.width;
-      }else if(img.image.height > img.image.width){
-        img.scale = canvas.height/img.image.height; 
+      img = document.createElement('img');
+      img.crossOrigin = "Anonymous";
+      img.src = element.src;
+      bmp = new createjs.Bitmap(img);
+      if(bmp.image.width > bmp.image.height){
+        bmp.scale = canvas.width/bmp.image.width;
+      }else if(bmp.image.height > bmp.image.width){
+        bmp.scale = canvas.height/bmp.image.height; 
       }else{
-        img.scale = canvas.height / img.image.height;
+        bmp.scale = canvas.height / bmp.image.height;
       }
 
-      img.x = (stage.canvas.width - img.image.width * img.scaleX) / 2;
-      img.y = (stage.canvas.height - img.image.height * img.scaleY) / 2;
+      bmp.x = (stage.canvas.width - bmp.image.width * bmp.scaleX) / 2;
+      bmp.y = (stage.canvas.height - bmp.image.height * bmp.scaleY) / 2;
 
-      stage.addChild(img);
+      stage.addChild(bmp);
       imageClicked = true;
     }else{
       imageClicked = false;
@@ -182,7 +185,7 @@
   }
 
   function applyFilters(){
-    if(img){
+    if(bmp){
       var color = new createjs.ColorMatrix()
             .adjustBrightness(+filters.brightness.input.value)
             .adjustContrast(+filters.contrast.input.value)
@@ -190,12 +193,12 @@
             .adjustSaturation(+filters.saturation.input.value);
       var blur = new createjs.BlurFilter(+filters.blurX.input.value, +filters.blurY.input.value, +filters.blurQuality.input.value);
 
-      img.filters = [
+      bmp.filters = [
         new createjs.ColorMatrixFilter(color),
         blur
       ];
-      var bounds = img.getBounds();
-      img.cache(0, 0, canvas.width*2, canvas.height*2);
+      var bounds = bmp.getBounds();
+      bmp.cache(0, 0, canvas.width*2, canvas.height*2);
       stage.update();
     }
   }

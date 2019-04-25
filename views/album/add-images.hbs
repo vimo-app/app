@@ -1,12 +1,12 @@
-{{> navigation/navigation}}
+{{> navigation/navigation user}}
 <div class="content">
   <div class="focused-content">
     <div class="focused-content__close">
-      <a href="/mock/album"><i class="fas fa-times"></i></a>
+      <a href="/album/{{albumId}}"><i class="fas fa-times"></i></a>
     </div>
     <h1 class="focused-content__title">Upload images</h1>
     <div class="focused-content__action">
-      <form action="/" method="POST" id="form" class="form" enctype="multipart/form-data">
+      <form action="/album/{{albumId}}/photo" method="POST" id="form" class="form" enctype="multipart/form-data">
         <div class="form__group">
           <label for="photos">Photos</label>
           <input id="photos" type="file" name="photos" multiple>
@@ -15,10 +15,10 @@
           <div class="form__message">{{ message }}</div>
         {{/if}}
         <div class="form__submitting">
-          <a href="/mock/album" class="button button--send">Add images to album</a>
+          <button class="button button--send" type="submit">Add images to album</button>
         </div>
       </form>
-      <a href="/mock/album" class="button">Cancel</a>
+      <a href="/album/{{albumId}}" class="button">Cancel</a>
     </div>
   </div>
 </div>
