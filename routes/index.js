@@ -5,7 +5,7 @@ const ensureLogin = require("connect-ensure-login");
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  res.render('index', {user: req.user});
 });
 
 router.get('/mock/profile', ensureLogin.ensureLoggedIn('/auth/login'), (req,res) => {
