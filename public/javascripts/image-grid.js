@@ -1,14 +1,22 @@
 (function(){
   let imageGrid = document.querySelector('#image-grid');
   let spinner = document.querySelector('#spinner');
+  let searchBtn = document.querySelector('#search');
+  let query = document.querySelector('#search-query');
   let anchor,img,div;
   let pageCounter = 1;
   
-  function loadImages(page = 1){
-    axios.get(`${window.location.origin}/flickr/home/photos/${page}`)
+  function loadImages(search ,page = 1){
+    axios.get(`${window.location.origin}/flickr/home/photos/${search}/${page}`)
     .then(response => {
+      console.log(response.data);
+      let moreImages = true;
       let images = response.data.response;
-      images.forEach(image => {
+      for(let image of images){
+        if(!image){
+          moreImages = false;
+          break;
+        }
         anchor = document.createElement('a');
         img = document.createElement('img');
         div = document.createElement('div');
@@ -20,11 +28,27 @@
         anchor.appendChild(img);
         anchor.appendChild(div);
         imageGrid.appendChild(anchor);
-      });
-      spinner.onclick = loadImages.bind(null, pageCounter++);
-      if(pageCounter < 5){ loadImages(pageCounter);}
+      }
+      if(!moreImages){
+        spinner.style.visibility = 'hidden';
+        spinner.onclick = null;
+        return;
+      }
+      spinner.onclick = loadImages.bind(null, search, pageCounter++);
+      if(pageCounter < 5){ loadImages(search, pageCounter);}
     });
   }
-  loadImages(pageCounter)
+
+  function search(){
+    let search = query.value === '' ? 'landscape' : query.value;
+    spinner.style.visibility = 'visible';
+    imageGrid.innerHTML = '';
+    pageCounter = 1;
+    loadImages(search, pageCounter);
+  }
+
+  searchBtn.onclick = search;
+
+  loadImages('landscape',pageCounter++);
   
 })();

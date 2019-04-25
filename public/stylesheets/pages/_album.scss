@@ -16,8 +16,8 @@
   &__canvas{
     margin-top: 3rem;
     background-color: rgba($text-color, .1);
-    transition: all .3s ease-in-out;
-    display: none;
+    transition: all 1.5s ease-in-out;
+    max-height: 0;
     opacity: 0;
   }
 }

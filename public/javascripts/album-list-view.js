@@ -90,12 +90,10 @@
       if(sliderContent.children[1].children[0] === element){ slidePrev(e); slidePrev(e);}
       if(sliderContent.children[5].children[0] === element){ slideNext(e); slideNext(e);}
       stage.removeAllChildren();
-
-      canvas.style.display = 'block';
+      canvas.style.maxHeight = '500rem';
+      canvas.style.opacity = 1;
+      window.scrollTo(0, 100);
       showWidget();
-      setTimeout(() => {
-        canvas.style.opacity = 1;
-      }, 300);
       
       selectedImage = element;
       img = document.createElement('img');
@@ -118,11 +116,9 @@
     }else{
       imageClicked = false;
       selectedImage = null;
+      canvas.style.maxHeight = 0;
       canvas.style.opacity = 0;
       widget.style.transform = 'translateX(50rem)';
-      setTimeout(() => {
-        canvas.style.display = 'none';
-      }, 300);
       setTimeout(() => {
         hideWidget();
         widget.style.transform = 'translateX(50rem)';

@@ -159,6 +159,8 @@ a {
       color: #f2f2f2;
       flex-grow: 0;
       flex-shrink: 0; }
+      .navigation__list-link:hover {
+        color: #cccccc; }
   .navigation--auth {
     justify-content: center; }
 
@@ -247,7 +249,8 @@ a {
   text-align: center;
   color: #333;
   text-transform: uppercase;
-  box-shadow: 0.1rem 0.1rem 0.3rem rgba(38, 38, 38, 0.3); }
+  box-shadow: 0.1rem 0.1rem 0.3rem rgba(38, 38, 38, 0.3);
+  transition: all .3s ease-in-out; }
   .button i {
     padding: .5rem;
     font-size: 1.8rem; }
@@ -269,6 +272,8 @@ a {
   .button--send {
     background-color: #4080bf;
     color: #FCFCFC; }
+    .button--send:hover {
+      background-color: #2d5986; }
 
 .form__group {
   padding: 1rem;
@@ -534,8 +539,13 @@ a {
   .images-list__canvas {
     margin-top: 3rem;
     background-color: rgba(51, 51, 51, 0.1);
-    transition: all .3s ease-in-out;
-    display: none;
+    transition: all 1.5s ease-in-out;
+    max-height: 0;
     opacity: 0; }
+
+.login-page > #form {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 2.5s ease-in-out, opacity 1s ease-in-out; }
 
 /*# sourceMappingURL=style.css.map */

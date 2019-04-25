@@ -3,11 +3,11 @@ const router = express.Router();
 const Flickr = require('flickr-sdk');
 const flickr = new Flickr(process.env.FLICKR_ID);
 
-router.get('/home/photos/:page?', (req, res, next) => {
+router.get('/home/photos/:text/:page?', (req, res, next) => {
   flickr.photos.search({
     page: req.params.page !== "" ? +req.params.page : 1,
     per_page: 5,
-    text: 'landscape'
+    text: req.params.text
   })
   .then(photos => Promise.resolve(JSON.parse(photos.text).photos.photo))
   .then(recentPhotos => Promise.resolve(recentPhotos.map(obj => {
