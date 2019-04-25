@@ -21,6 +21,10 @@ router.get('/:id/editPhoto', (req, res, next) => {
   res.render("album/add-images", { albumId: req.params.id, user: req.user });
 });
 
+router.get('/:id/editCover', (req, res, next) => {
+  res.render("profile/album-photo", { albumId: req.params.id, user: req.user});
+});
+
 router.post('/:id/photo', uploadCloud.array('photos'), (req, res, next) => {
 
   let payload = req.files;
@@ -43,5 +47,17 @@ router.post('/:id/photo', uploadCloud.array('photos'), (req, res, next) => {
     });
   })
 
+  router.post('/:id', uploadCloud.single('albumPhoto'), (req, res, next) => {
+    let albumPhoto = req.file.url;
+    Album.findByIdAndUpdate(req.params.id, {
+      albumPhoto
+    }, { new: true })
+      .then(album => {
+        res.redirect(`/user/${req.user._id}`);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  })
 
 module.exports = router;

@@ -1,6 +1,9 @@
 <div class="album">
   <a href="/album/{{album._id}}">
     <h2 class="album__title">{{album.name}}</h2>
-    <img src="/images/default/album.jpg" alt="Test 1" class="album__image">
+    <img src={{album.albumPhoto}} alt="Test 1" class="album__image">
+      <a href="{{starturl}}{{id}}{{endurl}}" class="button button--send">Change Cover</a>
   </a>
 </div>
+
+
