@@ -539,8 +539,8 @@ a {
   .images-list__canvas {
     margin-top: 3rem;
     background-color: rgba(51, 51, 51, 0.1);
-    transition: all .3s ease-in-out;
-    display: none;
+    transition: all 1.5s ease-in-out;
+    max-height: 0;
     opacity: 0; }
 
 .login-page > #form {
