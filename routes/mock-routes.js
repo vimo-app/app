@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Album = require("../models/album");
+const Album = require("../models/Album");
 
 
 router.get('/profile', (req, res, next) => {
