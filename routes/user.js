@@ -9,8 +9,15 @@ const Album = require("../models/Album");
 
 router.get('/:id', (req, res, next) => {
   User.findById(req.params.id)
-    .populate({path: 'albums', populate: {path: 'pictures', model: 'Picture'}})
-    .then(user => res.json(user));
+    .populate({ path: 'albums', populate: { path: 'pictures', model: 'Picture' } })
+    .then(user => {
+      res.render("profile/profile", { user });
+      // res.json(user)
+    });
+});
+
+router.get('/:id/edit', (req, res, next) => {
+  res.render("profile/profile-photo", {user: req.user});
 });
 
 router.post('/:id/album', uploadCloud.array('photos'), (req, res, next) => {
@@ -34,13 +41,28 @@ router.post('/:id/album', uploadCloud.array('photos'), (req, res, next) => {
   album.save();
 
   User.findById(req.params.id)
-    .then(user => {      
+    .then(user => {
       user.albums.push(album);
       user.save();
       res.json(user);
     })
     .catch(err => console.error(err));
 });
+
+router.post('/:id', uploadCloud.single('profilePhoto'), (req, res, next) => {
+  let userPhoto = req.file.url;
+  console.log('hola mundo')
+  User.findByIdAndUpdate(req.params.id, {
+    userPhoto
+  }, {new: true})
+    .then(user => {
+      console.log(user);
+      res.render("profile/profile", {user:user});
+    })
+    .catch(error => {
+      console.log(error);
+    })
+})
 
 // router.get("/:id", (req, res, next) => {
 //   const id = req.params.id;
