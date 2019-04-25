@@ -4,6 +4,7 @@
   login.onclick = expandForm;
   
   function expandForm(){
+    form.style.visibility = 'visible';
     form.style.maxHeight = '500rem';
     form.style.opacity = 1;
     login.onclick = shrinkForm;
@@ -13,5 +14,8 @@
     form.style.maxHeight = 0;
     form.style.opacity = 0;
     login.onclick = expandForm;
+    setTimeout(() => {
+      form.style.visibility = 'hidden';
+    }, 1000);
   }
 })();
