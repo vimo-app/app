@@ -11,7 +11,7 @@ router.get('/:id', (req, res, next) => {
   User.findById(req.params.id)
     .populate({ path: 'albums', populate: { path: 'pictures', model: 'Picture' } })
     .then(user => {
-      res.render("profile/profile", { user: req.user });
+      res.render("profile/profile", { user });
       // res.json(user)
     });
 });
@@ -61,7 +61,7 @@ router.post('/:id', uploadCloud.single('profilePhoto'), (req, res, next) => {
     userPhoto
   }, { new: true })
     .then(user => {
-      res.render("profile/profile", { user: req.user });
+      res.redirect(`/user/${user._id}`);
     })
     .catch(error => {
       console.log(error);
