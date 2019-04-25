@@ -59,7 +59,6 @@ router.post("/signup", (req, res, next) => {
     newUser.save()
       .then(() => {
         res.render("auth/login");
-        // res.status(200).json({ status: 200, newUser });
       })
       .catch(err => {
         console.log(err)
@@ -73,7 +72,7 @@ router.get('/instagram', passport.authenticate('instagram'), (req, res, next) =>
 });
 
 router.get('/instagram/callback', passport.authenticate('instagram', {
-  successRedirect: "/mock/profile",
+  successRedirect: "/",
   failureRedirect: "/auth/login"
 }));
 
@@ -82,7 +81,7 @@ router.get('/facebook', passport.authenticate('facebook'), (req, res, next) => {
 });
 
 router.get('/facebook/callback', passport.authenticate('facebook', {
-  successRedirect: "/mock/profile",
+  successRedirect: "/",
   failureRedirect: "/auth/login"
 }));
 

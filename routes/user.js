@@ -12,7 +12,6 @@ router.get('/:id', (req, res, next) => {
     .populate({ path: 'albums', populate: { path: 'pictures', model: 'Picture' } })
     .then(user => {
       res.render("profile/profile", { user });
-      // res.json(user)
     });
 });
 
@@ -49,8 +48,7 @@ router.post('/:id/album', uploadCloud.array('photos'), (req, res, next) => {
     .then(user => {
       user.albums.push(album);
       user.save();
-      res.render("profile/profile", { user: req.user });
-      // res.json(user);
+      res.redirect(`/user/${user._id}`);
     })
     .catch(err => console.error(err));
 });
@@ -67,50 +65,5 @@ router.post('/:id', uploadCloud.single('profilePhoto'), (req, res, next) => {
       console.log(error);
     })
 })
-
-// router.get("/:id", (req, res, next) => {
-//   const id = req.params.id;
-//   console.log(id)
-//   console.log(`Debug ID: ${id}`);
-//   User
-//     .findById(id)
-//     .populate({
-//       path: "albumID",
-//       populate: {path: "pictureID"}
-//     })
-//     .then(user => {
-//       console.log(user);
-//       res.json(user)
-//       // Album
-//       //   .find({ albumID: album._id })
-//       //   .then(album => {
-//       //     console.log(album)
-//       //     res.json({ user, album })
-//       // res.render("profile/profile", { user, album })
-//       //   });
-//     })
-//     .catch(error => {
-//       console.log('Error while getting the posts from the DB: ', error);
-//     });
-// });
-
-// router.get("/:id/albums", (req, res, next) => {
-//   const id = req.params.id
-//   User
-//     .findById(id)
-//     .populate("userId")
-//     .then(user => {
-//       Album
-//         .find({ userId: user._id })
-//         .then(album => {
-//           console.log(album)
-//           res.json(album)
-//           // res.render("partials/cards/album", { user, album });
-//         });
-//     })
-//     .catch(error => {
-//       console.log('Error while getting the album information: ', error);
-//     });
-// });
 
 module.exports = router;

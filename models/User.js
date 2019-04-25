@@ -7,7 +7,7 @@ const userSchema = new Schema({
   password: String,
   instagramID: String,
   facebookID: String,
-  userPhoto: {type: String, default: "/images/logo.png"},
+  userPhoto: {type: String, default: "/images/default/album.jpg"},
   albums: [{ type : Schema.Types.ObjectId, ref: 'Album' }]
 }, {
   timestamps: {

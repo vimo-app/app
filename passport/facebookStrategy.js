@@ -14,7 +14,6 @@ passport.use(new FacebookStrategy({
         if (user) {
           return done(null, user);
         }
-        //Register a new user in Mongo with id profile (Facebook)
         const newUser = new User({
           username: profile.displayName,
           facebookID: profile.id

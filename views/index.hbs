@@ -1,7 +1,12 @@
 {{> navigation/navigationSearch user}}
 <div class="content">
   <div class="normal-content">
-    <h1>Welcome to Vimo</h1>
+    {{#if user}}
+      <h1>{{user.username}}, welcome to Vimo</h1>
+    {{/if}}
+    {{#unless user}}
+      <h1>Welcome to Vimo</h1>
+    {{/unless}}
     <div class="flexbin flexbin-margin normal-content__image-grid" id="image-grid">
       
     </div>

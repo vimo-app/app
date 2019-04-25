@@ -12,7 +12,7 @@
         {{#each user.albums}}
           {{> cards/album album=this}}
         {{/each}}
-        {{> cards/card starturl="/user/" endurl="/editAlbum" id=user._id}}
+        {{> cards/card title='Add new album' starturl="/user/" endurl="/editAlbum" id=user._id}}
       </div>
   </div>
 </div>
