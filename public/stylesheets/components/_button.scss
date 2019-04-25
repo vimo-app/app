@@ -8,6 +8,7 @@
   color: $text-color;
   text-transform: uppercase;
   box-shadow: .1rem .1rem .3rem rgba($shadow-color, .3);
+  transition: all .3s ease-in-out;
 
   & i{
     padding: .5rem;
@@ -43,6 +44,10 @@
   &--send{
     background-color: $color-blue;
     color: $color-white;
+
+    &:hover{
+      background-color: darken($color-blue, 15%);
+    }
   }
 
 }

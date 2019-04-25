@@ -53,6 +53,9 @@
       flex-grow: 0;
       flex-shrink: 0;
       
+      &:hover{
+        color: darken($navigation-color, 15%);
+      }
     }
   }
 
