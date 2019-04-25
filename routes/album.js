@@ -7,19 +7,22 @@ const Album = require('../models/Album');
 const Picture = require('../models/Picture');
 const User = require('../models/User');
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
   const id = req.params.id;
 
   Album.findById(id)
     .populate("pictures")
     .then(album => {
-      console.log(album)
       res.render('album/view', { album, user: req.user });
     });
 });
 
 router.get('/:id/editPhoto', (req, res, next) => {
   res.render("album/add-images", { albumId: req.params.id, user: req.user });
+});
+
+router.get('/:id/editCover', (req, res, next) => {
+  res.render("profile/album-photo", { albumId: req.params.id, user: req.user});
 });
 
 router.post('/:id/photo', uploadCloud.array('photos'), (req, res, next) => {
@@ -44,5 +47,17 @@ router.post('/:id/photo', uploadCloud.array('photos'), (req, res, next) => {
     });
   })
 
+  router.post('/:id', uploadCloud.single('albumPhoto'), (req, res, next) => {
+    let albumPhoto = req.file.url;
+    Album.findByIdAndUpdate(req.params.id, {
+      albumPhoto
+    }, { new: true })
+      .then(album => {
+        res.redirect(`/user/${req.user._id}`);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  })
 
 module.exports = router;

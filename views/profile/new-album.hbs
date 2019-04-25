@@ -9,11 +9,11 @@
       <form action="/user/{{user._id}}/album" method="POST" id="form" class="form" enctype="multipart/form-data">
         <div class="form__group">
           <label for="name">Album name</label>
-          <input id="name" type="text" name="name" placeholder="The album name">
+          <input id="name" type="text" name="name" placeholder="The album name" required>
         </div>
         <div class="form__group">
           <label for="photos">Photos</label>
-          <input id="photos" type="file" name="photos" multiple>
+          <input id="photos" type="file" name="photos" multiple required>
         </div>
         {{#if message }}
           <div class="form__message">{{ message }}</div>

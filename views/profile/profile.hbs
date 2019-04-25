@@ -10,8 +10,9 @@
       <div class="album-list">
           <h2 class="album-list__title">{{this.name}}</h1>
         {{#each user.albums}}
-          {{> cards/album album=this}}
+          {{> cards/album album=this starturl="/album/" endurl="/editCover" id=this._id}}
         {{/each}}
+
         {{> cards/card title='Add new album' starturl="/user/" endurl="/editAlbum" id=user._id}}
       </div>
   </div>

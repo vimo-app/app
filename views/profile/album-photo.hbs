@@ -1,0 +1,24 @@
+{{> navigation/navigation user}}
+<div class="content">
+  <div class="focused-content">
+    <div class="focused-content__close">
+      <a href="/user/{{user._id}}"><i class="fas fa-times"></i></a>
+    </div>
+    <h1 class="focused-content__title">Update Cover</h1>
+    <div class="focused-content__action">
+      <form action="/album/{{albumId}}" method="POST" id="form" class="form" enctype="multipart/form-data">
+        <div class="form__group">
+          <label for="albumPhoto">Album Cover</label>
+          <input id="albumPhoto" type="file" name="albumPhoto">
+        </div>
+        {{#if message }}
+          <div class="form__message">{{ message }}</div>
+        {{/if}}
+        <div class="form__submitting">
+          <button class="button button--send" type="submit">Update</button>
+        </div>
+      </form>
+      <a href="/user/{{user._id}}" class="button">Cancel</a>
+    </div>
+  </div>
+</div>
