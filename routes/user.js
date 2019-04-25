@@ -9,8 +9,12 @@ const Album = require("../models/Album");
 
 router.get('/:id', (req, res, next) => {
   User.findById(req.params.id)
-    .populate({path: 'albums', populate: {path: 'pictures', model: 'Picture'}})
-    .then(user => res.json(user));
+    .populate({ path: 'albums', populate: { path: 'pictures', model: 'Picture' } })
+    .then(user => {
+      console.log(user);
+      res.render("profile/profile", { user });
+      // res.json(user)
+    });
 });
 
 router.post('/:id/album', uploadCloud.array('photos'), (req, res, next) => {
@@ -34,7 +38,7 @@ router.post('/:id/album', uploadCloud.array('photos'), (req, res, next) => {
   album.save();
 
   User.findById(req.params.id)
-    .then(user => {      
+    .then(user => {
       user.albums.push(album);
       user.save();
       res.json(user);
