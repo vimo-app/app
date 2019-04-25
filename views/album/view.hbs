@@ -1,20 +1,15 @@
-{{> navigation/navigation}}
+{{> navigation/navigation user}}
 <div class="content">
   <div class="normal-content">
-    <h2 class="images-list__title">Album name</h1>
+    <h2 class="images-list__title">{{album.name}}</h1>
     <canvas id="canvas" class="images-list__canvas" >Your browser is not supported</canvas>
     <div class="slider">
       <ul id="slider__content">
-        <li class="slider__paginate" id="prev"><i class="fas fa-arrow-left"></i></li>
-        <li class="slider__image"><img src="/images/test/test-1.jpg" alt=""></li>
-        <li class="slider__image"><img src="/images/test/test-2.jpg" alt=""></li>
-        <li class="slider__image"><img src="/images/test/test-3.jpg" alt=""></li>
-        <li class="slider__image"><img src="/images/test/test-4.jpg" alt=""></li>
-        <li class="slider__image"><img src="/images/test/test-5.jpg" alt=""></li>
-        <li class="slider__image"><img src="/images/test/test-6.jpg" alt=""></li>
-        <li class="slider__image"><img src="/images/test/test-7.jpg" alt=""></li>
-        <li class="slider__image"><img src="/images/test/test-8.jpg" alt=""></li>
-        <li class="slider__paginate" id="next"><i class="fas fa-arrow-right"></i></li>
+          <li class="slider__paginate" id="prev"><i class="fas fa-arrow-left"></i></li>
+        {{#each album.pictures}}
+          <li class="slider__image"><img src="{{imgPath}}" alt=""></li>
+        {{/each}}
+          <li class="slider__paginate" id="next"><i class="fas fa-arrow-right"></i></li>
       </ul>
       <div class="slider__editor" id="widget">
         <div class="slider__editor-widget">
@@ -57,7 +52,7 @@
         </div>
       </div>
       <div class="images-list" id="image-list">
-        {{> cards/card url='/mock/upload-images' title='Upload photos'}}
+        {{> cards/card starturl="/album/" endurl="/editPhoto" id=album._id title='Upload photos'}}
       </div>
     </div>
   </div>

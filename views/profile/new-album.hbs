@@ -2,11 +2,11 @@
 <div class="content">
   <div class="focused-content">
     <div class="focused-content__close">
-      <a href="/mock/profile"><i class="fas fa-times"></i></a>
+      <a href="/user/{{user._id}}"><i class="fas fa-times"></i></a>
     </div>
     <h1 class="focused-content__title">Create a new Album</h1>
     <div class="focused-content__action">
-      <form action="/{{this._id}}" method="POST" id="form" class="form" enctype="multipart/form-data">
+      <form action="/user/{{user._id}}/album" method="POST" id="form" class="form" enctype="multipart/form-data">
         <div class="form__group">
           <label for="name">Album name</label>
           <input id="name" type="text" name="name" placeholder="The album name">
@@ -19,10 +19,10 @@
           <div class="form__message">{{ message }}</div>
         {{/if}}
         <div class="form__submitting">
-          <a href="/mock/profile" class="button button--send">Create album</a>
+          <button class="button button--send" type="submit">Create album</button>
         </div>
       </form>
-      <a href="/mock/profile" class="button">Cancel</a>
+      <a href="/user/{{user._id}}" class="button">Cancel</a>
     </div>
   </div>
 </div>
