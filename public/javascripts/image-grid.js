@@ -48,6 +48,6 @@
 
   searchBtn.onclick = search;
 
-  loadImages('landscape',pageCounter);
+  loadImages('landscape',pageCounter++);
   
 })();
