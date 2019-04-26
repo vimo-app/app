@@ -15,7 +15,7 @@
 
   &__canvas{
     margin-top: 3rem;
-    background-color: rgba($text-color, .1);
+    background-color: lighten(#91AA9D,45%);
     transition: all 1.5s ease-in-out;
     max-height: 0;
     opacity: 0;
