@@ -478,11 +478,14 @@ a {
             margin: .5rem 0;
             color: #193441; }
             .slider__editor-tools-tool-config-group > label {
-              padding: 1rem; }
+              padding: 1rem;
+              width: 10rem; }
             .slider__editor-tools-tool-config-group > input {
-              padding: 1rem; }
+              padding: 1rem;
+              width: 12rem; }
             .slider__editor-tools-tool-config-group > span {
-              padding: 1rem; }
+              padding: 1rem;
+              width: 8rem; }
 
 .content {
   display: flex;
