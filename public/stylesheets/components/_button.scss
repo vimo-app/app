@@ -43,10 +43,10 @@
 
   &--send{
     background-color: $color-blue;
-    color: $color-white;
+    color: #193441;
 
     &:hover{
-      background-color: darken($color-blue, 15%);
+      background-color: darken($color-blue, 10%);
     }
   }
 

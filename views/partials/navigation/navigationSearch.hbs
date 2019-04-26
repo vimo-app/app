@@ -1,11 +1,18 @@
 <nav class="navigation">
   <div class="navigation__logo">
-    <a href="/"><img src="/images/logo.png" alt="Vimo logo"></a>
+    {{#if this}}
+    <a href="/"><img src="/images/LogoVimo.png" alt="Vimo logo"></a>
+    {{/if}}
+    {{#unless this}}
+    <a href="/"><img src="/images/LogoV.png" alt="Vimo logo"></a>
+    {{/unless}}
   </div>
+  {{#unless this}}
   <div class="navigation__search">
     <input type="text" placeholder="Search photos..." name="search" id="search-query">
     <button id="search" class="button button--send"><i class="fas fa-search"></i></button>
   </div>
+  {{/unless}}
   <div class="navigation__list">
     <a href="/" class="navigation__list-link"><i class="fas fa-home"></i></a>
     {{#if this}}

@@ -56,7 +56,8 @@
     top: 15vh;
     height: 70vh;
     min-width: 30rem;
-    background-color: darken($bg-color, 15%);
+    background-color: lighten(#91AA9D,30%);
+    // background-color: #91AA9D;
     color: $text-color;
     border-top: 1px solid $shadow-color;
     border-left: 1px solid $shadow-color;
@@ -114,6 +115,7 @@
             display: flex;
             align-items: center;
             margin: .5rem 0;
+            color: #193441;
 
             & > label{
               padding: 1rem;
