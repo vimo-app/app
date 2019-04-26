@@ -40,7 +40,7 @@
   }
 
   function search(){
-    let search = query.value === '' ? 'landscape' : query.value;
+    let search = query.value === '' ? 'flower' : query.value;
     spinner.style.visibility = 'visible';
     imageGrid.innerHTML = '';
     pageCounter = 1;
@@ -49,6 +49,6 @@
 
   searchBtn.onclick = search;
 
-  loadImages('landscape',pageCounter++);
+  loadImages('flower',pageCounter++);
   
 })();

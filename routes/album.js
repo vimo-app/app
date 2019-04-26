@@ -45,7 +45,7 @@ router.post('/:id/photo', uploadCloud.array('photos'), (req, res, next) => {
         .then(album => res.redirect(`/album/${req.params.id}`))
         .catch(err => console.error(err));
     });
-  })
+  });
 
   router.post('/:id', uploadCloud.single('albumPhoto'), (req, res, next) => {
     let albumPhoto = req.file.url;
