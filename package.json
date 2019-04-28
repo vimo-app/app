@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "DEBUG=vimo:* nodemon ./bin/www",
-    "dev-windows": "nodemon ./bin/www -e js,hbs,css,json"
+    "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",

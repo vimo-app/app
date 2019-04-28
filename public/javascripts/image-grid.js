@@ -9,7 +9,6 @@
   function loadImages(search ,page = 1){
     axios.get(`${window.location.origin}/flickr/home/photos/${search}/${page}`)
     .then(response => {
-      console.log(response.data);
       let moreImages = true;
       let images = response.data.response;
       for(let image of images){

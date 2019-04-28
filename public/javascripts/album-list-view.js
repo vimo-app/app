@@ -96,23 +96,31 @@
       showWidget();
       
       selectedImage = element;
-      img = document.createElement('img');
+      img = new Image();
       img.crossOrigin = "Anonymous";
       img.src = element.src;
-      bmp = new createjs.Bitmap(img);
-      if(bmp.image.width > bmp.image.height){
-        bmp.scale = canvas.width/bmp.image.width;
-      }else if(bmp.image.height > bmp.image.width){
-        bmp.scale = canvas.height/bmp.image.height; 
-      }else{
-        bmp.scale = canvas.height / bmp.image.height;
-      }
-
-      bmp.x = (stage.canvas.width - bmp.image.width * bmp.scaleX) / 2;
-      bmp.y = (stage.canvas.height - bmp.image.height * bmp.scaleY) / 2;
-
-      stage.addChild(bmp);
-      imageClicked = true;
+      img.onload = function(){
+        bmp = new createjs.Bitmap(img);
+        // if(bmp.image.width > bmp.image.height){
+        //   bmp.scale = canvas.width/bmp.image.width;
+        // }else if(bmp.image.height > bmp.image.width){
+        //   bmp.scale = canvas.height/bmp.image.height; 
+        // }else{
+        //   bmp.scale = canvas.height / bmp.image.height;
+        // }
+        if(bmp.image.width*9/16 < bmp.image.height){
+          bmp.scale = canvas.height/bmp.image.height; 
+        }else if(bmp.image.width*9/16 > bmp.image.height){
+          bmp.scale = canvas.width/bmp.image.width;
+        }else{
+          bmp.scale = canvas.width/bmp.image.width;
+        }
+  
+        bmp.x = (stage.canvas.width - bmp.image.width * bmp.scaleX) / 2 > 0 ? (stage.canvas.width - bmp.image.width * bmp.scaleX) / 2 : 0;
+        bmp.y = (stage.canvas.height - bmp.image.height * bmp.scaleY) / 2 > 0 ? (stage.canvas.height - bmp.image.height * bmp.scaleY) / 2 : 0;
+        stage.addChild(bmp);
+        imageClicked = true;
+      };
     }else{
       imageClicked = false;
       selectedImage = null;
@@ -197,8 +205,7 @@
         new createjs.ColorMatrixFilter(color),
         blur
       ];
-      var bounds = bmp.getBounds();
-      bmp.cache(0, 0, canvas.width*2, canvas.height*2);
+      bmp.cache(0, 0, stage.canvas.width*2, stage.canvas.width*2, bmp.scale);
       stage.update();
     }
   }
